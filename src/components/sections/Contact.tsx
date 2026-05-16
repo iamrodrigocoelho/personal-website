@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { MessageCircle, Mail, FileDown, CheckCircle } from "lucide-react";
+import { useState, useCallback } from "react";
+import { MessageCircle, Mail, FileDown, CheckCircle, ShieldCheck } from "lucide-react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { LinkedInIcon } from "@/components/ui/Icons";
 import { Section, SectionHeader } from "@/components/layout/Section";
 import { Button } from "@/components/ui/Button";
@@ -39,6 +40,11 @@ export function Contact({ content }: ContactProps) {
   const [errors, setErrors] = useState<Partial<FormState>>({});
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [recaptchaError, setRecaptchaError] = useState(false);
+
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
+  const hasRecaptcha = !!process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
   const validate = () => {
     const e: Partial<FormState> = {};
@@ -60,80 +66,75 @@ export function Contact({ content }: ContactProps) {
     if (errors[name as keyof FormState]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
+    if (recaptchaError) setRecaptchaError(false);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (form._honeypot) return; // bot detected
+  const handleSubmit = useCallback(
+    async (e: React.FormEvent) => {
+      e.preventDefault();
+      if (form._honeypot) return;
 
-    const errs = validate();
-    if (Object.keys(errs).length > 0) {
-      setErrors(errs);
-      return;
-    }
-
-    setSubmitting(true);
-
-    // Submit via Formspree (configure NEXT_PUBLIC_FORMSPREE_ID in .env)
-    const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
-
-    if (formspreeId) {
-      try {
-        const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify({
-            name: form.name,
-            email: form.email,
-            company: form.company,
-            subject: form.subject,
-            message: form.message,
-          }),
-        });
-        if (res.ok) {
-          setSubmitted(true);
-          setForm(initialForm);
-        }
-      } catch {
-        // fallback: open mailto
-        window.location.href = `mailto:${links.email.replace("mailto:", "")}?subject=${encodeURIComponent(form.subject || "Contato via site")}&body=${encodeURIComponent(form.message)}`;
+      const errs = validate();
+      if (Object.keys(errs).length > 0) {
+        setErrors(errs);
+        return;
       }
-    } else {
-      // Fallback: mailto
-      window.location.href = `mailto:${links.email.replace("mailto:", "")}?subject=${encodeURIComponent(form.subject || "Contato via site")}&body=${encodeURIComponent(`Nome: ${form.name}\nEmpresa: ${form.company}\n\n${form.message}`)}`;
-      setSubmitted(true);
-      setForm(initialForm);
-    }
 
-    setSubmitting(false);
-  };
+      setSubmitting(true);
+      setRecaptchaError(false);
+
+      // Execute reCAPTCHA v3 if configured
+      let recaptchaToken: string | undefined;
+      if (hasRecaptcha && executeRecaptcha) {
+        try {
+          recaptchaToken = await executeRecaptcha("contact_form");
+        } catch {
+          setRecaptchaError(true);
+          setSubmitting(false);
+          return;
+        }
+      }
+
+      const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
+
+      if (formspreeId) {
+        try {
+          const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Accept: "application/json" },
+            body: JSON.stringify({
+              name: form.name,
+              email: form.email,
+              company: form.company,
+              subject: form.subject,
+              message: form.message,
+              ...(recaptchaToken && { "g-recaptcha-response": recaptchaToken }),
+            }),
+          });
+          if (res.ok) {
+            setSubmitted(true);
+            setForm(initialForm);
+          }
+        } catch {
+          window.location.href = `mailto:${links.email.replace("mailto:", "")}?subject=${encodeURIComponent(form.subject || "Contato via site")}&body=${encodeURIComponent(form.message)}`;
+        }
+      } else {
+        window.location.href = `mailto:${links.email.replace("mailto:", "")}?subject=${encodeURIComponent(form.subject || "Contato via site")}&body=${encodeURIComponent(`Nome: ${form.name}\nEmpresa: ${form.company}\n\n${form.message}`)}`;
+        setSubmitted(true);
+        setForm(initialForm);
+      }
+
+      setSubmitting(false);
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [form, executeRecaptcha, hasRecaptcha, links.email]
+  );
 
   const quickLinks = [
-    {
-      icon: <LinkedInIcon size={18} />,
-      label: contact.linkedinLabel,
-      href: links.linkedin,
-      external: true,
-    },
-    {
-      icon: <MessageCircle size={18} />,
-      label: contact.whatsappLabel,
-      href: links.whatsapp,
-      external: true,
-    },
-    {
-      icon: <Mail size={18} />,
-      label: contact.emailLabel,
-      href: links.email,
-      external: false,
-    },
-    {
-      icon: <FileDown size={18} />,
-      label: contact.resumeLabel,
-      href: links.resume,
-      external: false,
-      download: true,
-    },
+    { icon: <LinkedInIcon size={18} />, label: contact.linkedinLabel, href: links.linkedin, external: true },
+    { icon: <MessageCircle size={18} />, label: contact.whatsappLabel, href: links.whatsapp, external: true },
+    { icon: <Mail size={18} />, label: contact.emailLabel, href: links.email, external: false },
+    { icon: <FileDown size={18} />, label: contact.resumeLabel, href: links.resume, external: false, download: true },
   ];
 
   return (
@@ -147,7 +148,6 @@ export function Contact({ content }: ContactProps) {
             title={contact.title}
             subtitle={contact.subtitle}
           />
-
           <p className="text-sm text-[#6b7280] mb-4">{contact.orLabel}</p>
           <div className="flex flex-col gap-2">
             {quickLinks.map((ql) => (
@@ -264,15 +264,48 @@ export function Contact({ content }: ContactProps) {
                 )}
               </div>
 
-              <div className="flex justify-end">
-                <Button
-                  type="submit"
-                  variant="primary"
-                  size="md"
-                  disabled={submitting}
-                >
-                  {submitting ? "Enviando…" : contact.form.submit}
-                </Button>
+              {recaptchaError && (
+                <p role="alert" className="text-xs text-[#ef4444]">
+                  Falha na verificação de segurança. Tente novamente.
+                </p>
+              )}
+
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                {/* reCAPTCHA badge notice */}
+                {hasRecaptcha && (
+                  <p className="text-[11px] text-[#898989] flex items-center gap-1.5">
+                    <ShieldCheck size={12} className="flex-shrink-0" />
+                    Protegido por reCAPTCHA —{" "}
+                    <a
+                      href="https://policies.google.com/privacy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline hover:text-[#6b7280] transition-colors"
+                    >
+                      Privacidade
+                    </a>{" "}
+                    e{" "}
+                    <a
+                      href="https://policies.google.com/terms"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline hover:text-[#6b7280] transition-colors"
+                    >
+                      Termos
+                    </a>
+                  </p>
+                )}
+
+                <div className={hasRecaptcha ? "" : "ml-auto"}>
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    size="md"
+                    disabled={submitting}
+                  >
+                    {submitting ? "Enviando…" : contact.form.submit}
+                  </Button>
+                </div>
               </div>
             </form>
           )}

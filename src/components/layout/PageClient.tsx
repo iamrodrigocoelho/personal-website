@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
@@ -15,14 +16,14 @@ import { pt } from "@/content/pt";
 import { en } from "@/content/en";
 import type { Lang } from "@/types/content";
 
+const RECAPTCHA_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "";
+
 export function PageClient() {
   const [lang, setLang] = useState<Lang>("pt");
-
   const content = lang === "pt" ? pt : en;
 
-  return (
+  const page = (
     <>
-      {/* Skip to content for keyboard/screen reader users */}
       <a href="#main-content" className="skip-to-content">
         Ir para o conteúdo principal
       </a>
@@ -30,25 +31,34 @@ export function PageClient() {
       <Header content={content} lang={lang} onLangChange={setLang} />
 
       <main id="main-content" tabIndex={-1}>
-        {/* white */}
         <Hero content={content} />
-        {/* #f8f9fa */}
         <About content={content} />
-        {/* white */}
         <Areas content={content} />
-        {/* #f8f9fa */}
         <Experience content={content} />
-        {/* white */}
         <Projects content={content} />
-        {/* #f8f9fa */}
         <Articles content={content} />
-        {/* white */}
         <Teaching content={content} />
-        {/* white */}
         <Contact content={content} />
       </main>
 
       <Footer content={content} />
     </>
   );
+
+  // Only mount the reCAPTCHA provider when a site key is configured.
+  // This avoids loading the Google script on sites that haven't set up reCAPTCHA yet.
+  if (RECAPTCHA_KEY) {
+    return (
+      <GoogleReCaptchaProvider
+        reCaptchaKey={RECAPTCHA_KEY}
+        scriptProps={{ async: true, defer: true }}
+        // Hide the floating badge — legal notice is shown inline on the form
+        container={{ parameters: { badge: "bottomright", theme: "light" } }}
+      >
+        {page}
+      </GoogleReCaptchaProvider>
+    );
+  }
+
+  return <>{page}</>;
 }
