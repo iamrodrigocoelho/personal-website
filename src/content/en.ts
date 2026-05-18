@@ -206,6 +206,8 @@ export const en: SiteContent = {
       },
     ],
     ctaLabel: "View on LinkedIn",
+    ctaScholarLabel: "View on Google Scholar",
+    ctaMediumLabel: "View on Medium",
   },
   teaching: {
     sectionLabel: "Teaching & Education",
@@ -305,5 +307,7 @@ export const en: SiteContent = {
     email: "mailto:SEUEMAIL",
     resume: "/curriculo-rodrigo-coelho.pdf",
     articleEsgInside: "https://INSERIR-LINK-DO-ARTIGO",
+    googleScholar: "https://scholar.google.com/citations?user=INSERIR-USER-ID",
+    medium: "https://medium.com/@INSERIR-USERNAME",
   },
 };

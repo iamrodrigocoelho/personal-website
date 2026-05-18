@@ -82,6 +82,8 @@ export interface ArticlesContent {
   subtitle: string;
   items: ArticleItem[];
   ctaLabel: string;
+  ctaScholarLabel: string;
+  ctaMediumLabel: string;
 }
 
 export interface TeachingItem {
@@ -166,5 +168,7 @@ export interface SiteContent {
     email: string;
     resume: string;
     articleEsgInside: string;
+    googleScholar: string;
+    medium: string;
   };
 }

@@ -116,9 +116,15 @@ export function Articles({ content }: ArticlesProps) {
         </div>
       </div>
 
-      <div className="mt-8">
+      <div className="mt-8 flex flex-wrap gap-3">
         <Button href={links.linkedin} external variant="secondary" size="md">
           {articles.ctaLabel}
+        </Button>
+        <Button href={links.googleScholar} external variant="secondary" size="md">
+          {articles.ctaScholarLabel}
+        </Button>
+        <Button href={links.medium} external variant="secondary" size="md">
+          {articles.ctaMediumLabel}
         </Button>
       </div>
     </Section>
