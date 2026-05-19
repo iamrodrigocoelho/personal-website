@@ -304,7 +304,7 @@ export const pt: SiteContent = {
     url: "https://iamrodrigocoelho.com",
   },
   links: {
-    linkedin: "https://www.linkedin.com/in/iamrodrigocoelho/,
+    linkedin: "https://www.linkedin.com/in/iamrodrigocoelho/",
     whatsapp: "https://wa.me/5521997992075",
     email: "mailto:SEUEMAIL",
     resume: "/curriculo-rodrigo-coelho.pdf",
