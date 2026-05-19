@@ -158,7 +158,7 @@ export const pt: SiteContent = {
           "Artigos e análises sobre energia, IA, data centers, matriz energética brasileira e vantagem competitiva em negócios sustentáveis.",
         tags: ["IA", "Sustentabilidade", "ESG", "Editorial"],
         ctaLabel: "Ler artigo na ESG Inside",
-        ctaHref: "https://INSERIR-LINK-DO-ARTIGO",
+        ctaHref: "https://esginside.com.br/2026/04/24/o-apetite-energetico-dos-llms-e-a-vantagem-competitiva-da-matriz-energetica-brasileira/",
       },
       {
         title: "Educação Executiva",
@@ -181,7 +181,7 @@ export const pt: SiteContent = {
           "Análise sobre o crescimento do consumo energético dos modelos de linguagem, o papel dos data centers e a oportunidade estratégica da matriz energética brasileira no avanço da Inteligência Artificial.",
         type: "Revista",
         date: "2025",
-        href: "https://INSERIR-LINK-DO-ARTIGO",
+        href: "https://esginside.com.br/2026/04/24/o-apetite-energetico-dos-llms-e-a-vantagem-competitiva-da-matriz-energetica-brasileira/",
         featured: true,
       },
       {
@@ -239,18 +239,18 @@ export const pt: SiteContent = {
     education: [
       {
         degree: "Mestrado em Engenharia Ambiental",
-        institution: "Universidade",
-        year: "2022",
+        institution: "PUC-Rio",
+        year: "2024",
       },
       {
         degree: "Pós-graduação em Desenvolvimento Full Stack",
-        institution: "Instituição de ensino superior",
-        year: "2020",
+        institution: "PUC-Rio",
+        year: "2022",
       },
       {
         degree: "Pós-graduação em Inteligência Artificial e Computacional",
-        institution: "Instituição de ensino superior",
-        year: "2023",
+        institution: "Universidade Federal de Viçosa",
+        year: "2025",
       },
     ],
   },
@@ -290,9 +290,9 @@ export const pt: SiteContent = {
       { label: "Contato", href: "#contato" },
     ],
     contactLinks: [
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/SEU-LINKEDIN" },
-      { label: "WhatsApp", href: "https://wa.me/55SEUNUMERO" },
-      { label: "E-mail", href: "mailto:SEUEMAIL" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/iamrodrigocoelho/" },
+      { label: "WhatsApp", href: "https://wa.me/5521997992075" },
+      { label: "E-mail", href: "mailto:contato@iamrodrigocoelho.com" },
       { label: "Currículo", href: "/curriculo-rodrigo-coelho.pdf" },
     ],
   },
@@ -304,12 +304,12 @@ export const pt: SiteContent = {
     url: "https://iamrodrigocoelho.com",
   },
   links: {
-    linkedin: "https://www.linkedin.com/in/SEU-LINKEDIN",
-    whatsapp: "https://wa.me/55SEUNUMERO",
+    linkedin: "https://www.linkedin.com/in/iamrodrigocoelho/,
+    whatsapp: "https://wa.me/5521997992075",
     email: "mailto:SEUEMAIL",
     resume: "/curriculo-rodrigo-coelho.pdf",
-    articleEsgInside: "https://INSERIR-LINK-DO-ARTIGO",
-    googleScholar: "https://scholar.google.com/citations?user=INSERIR-USER-ID",
-    medium: "https://medium.com/@INSERIR-USERNAME",
+    articleEsgInside: "https://esginside.com.br/2026/04/24/o-apetite-energetico-dos-llms-e-a-vantagem-competitiva-da-matriz-energetica-brasileira/",
+    googleScholar: "https://scholar.google.com/citations?user=QwdZe_oAAAAJ&hl=en",
+    medium: "https://medium.com/@iamrodrigocoelho",
   },
 };
