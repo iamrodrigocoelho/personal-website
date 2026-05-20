@@ -188,7 +188,7 @@ export const pt: SiteContent = {
         description:
           "Análise sobre o crescimento do consumo energético dos modelos de linguagem, o papel dos data centers e a oportunidade estratégica da matriz energética brasileira no avanço da Inteligência Artificial.",
         type: "Revista",
-        date: "2025",
+        date: "2026",
         href: "https://esginside.com.br/2026/04/24/o-apetite-energetico-dos-llms-e-a-vantagem-competitiva-da-matriz-energetica-brasileira/",
         featured: true,
       },
@@ -203,8 +203,9 @@ export const pt: SiteContent = {
         title: "Americanas e Selo Procel se unem para sensibilizar clientes sobre sustentabilidade de produtos",
         description:
           "Reflexões sobre o papel da tecnologia na agenda ESG e como empresas podem criar vantagem competitiva com inovação sustentável.",
-        type: "Ensaio",
-        date: "2024",
+        type: "Revista",
+        date: "2022",
+        href: "https://istoedinheiro.com.br/americanas-s-a-e-selo-procel-se-unem-para-sensibilizar-clientes-sobre-sustentabilidade-de-produtos",
       },
       {
         title: "O perfil do cliente no físico e no digital",
@@ -212,6 +213,7 @@ export const pt: SiteContent = {
           "Como será o consumidor do futuro? A multicanalidade se torna cada vez mais forte: o cliente que começa a jornada de compra no físico e termina no digital e vice-versa.",
         type: "Spotify",
         date: "2023",
+        href: "https://open.spotify.com/episode/5pGWdHmqMNAEyHsOWsAzGt?si=FPR151vERTWOUI5NWhULXg",
       },
     ],
     ctaLabel: "Ver no LinkedIn",
@@ -227,8 +229,8 @@ export const pt: SiteContent = {
       {
         category: "Aulas e MBAs",
         items: [
-          "Negócios Sustentáveis",
-          "Sustentabilidade e ESG",
+          "IA para Negócios Sustentáveis",
+          "Tecnologia e Sustentabilidade",
           "Inovação e Transformação Digital",
           "Tecnologia aplicada a negócios",
         ],
