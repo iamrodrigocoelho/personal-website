@@ -97,7 +97,7 @@ export const pt: SiteContent = {
       {
         role: "Head de Produto e Tecnologia",
         company: "Drogaria Venancio",
-        period: "2023 — Presente",
+        period: "2025 — Presente",
         description:
           "Liderança de produtos digitais, plataformas, site, app, PDV e suporte às aplicações, com foco em transformação digital, eficiência operacional, experiência do cliente e adoção de tecnologias emergentes incluindo IA Generativa e automação.",
         tags: ["Produto Digital", "Tecnologia", "Varejo", "IA Generativa", "Omnichannel"],
@@ -105,27 +105,35 @@ export const pt: SiteContent = {
       {
         role: "Gerente de Tecnologia",
         company: "Americanas S.A.",
-        period: "2020 — 2023",
+        period: "2022 — 2025",
         description:
           "Atuação em ambiente de grande escala com experiência em tecnologia, operações digitais, suporte a sistemas críticos, e-commerce, marketplace, incidentes e gestão de times em empresa com milhões de transações diárias.",
         tags: ["E-commerce", "Marketplace", "Operações", "Tecnologia", "Gestão"],
       },
       {
+        role: "Group Technical Product Manager",
+        company: "Publicações e periódicos",
+        period: "2019 — 2022",
+        description:
+          "",
+        tags: ["Product Management", "E-commerce", "Marketplace", "Site Reliability Engineering", "Tecnologia"],
+      },
+      {
         role: "Professor Convidado",
-        company: "Instituições de ensino superior",
-        period: "2021 — Presente",
+        company: "LARES - UFRJ",
+        period: "2023 — Presente",
         description:
           "Atuação em disciplinas relacionadas a negócios sustentáveis, inovação, tecnologia aplicada e sustentabilidade, contribuindo para a formação de profissionais e lideranças executivas.",
         tags: ["Educação Executiva", "Sustentabilidade", "Inovação", "MBA"],
       },
-      {
-        role: "Produção Acadêmica e Editorial",
-        company: "Publicações e periódicos",
-        period: "2019 — Presente",
-        description:
-          "Produção de artigos, análises e pesquisas sobre Inteligência Artificial, sustentabilidade, tecnologia, matriz energética, negócios digitais e transformação organizacional.",
-        tags: ["IA", "ESG", "Artigos", "Pesquisa", "Tecnologia"],
-      },
+      // {
+      //   role: "Produção Acadêmica e Editorial",
+      //   company: "Publicações e periódicos",
+      //   period: "2019 — Presente",
+      //   description:
+      //     "Produção de artigos, análises e pesquisas sobre Inteligência Artificial, sustentabilidade, tecnologia, matriz energética, negócios digitais e transformação organizacional.",
+      //   tags: ["IA", "ESG", "Artigos", "Pesquisa", "Tecnologia"],
+      // },
     ],
   },
   projects: {
@@ -192,18 +200,18 @@ export const pt: SiteContent = {
         date: "2024",
       },
       {
-        title: "Sustentabilidade e tecnologia: convergências estratégicas",
+        title: "Americanas e Selo Procel se unem para sensibilizar clientes sobre sustentabilidade de produtos",
         description:
           "Reflexões sobre o papel da tecnologia na agenda ESG e como empresas podem criar vantagem competitiva com inovação sustentável.",
         type: "Ensaio",
         date: "2024",
       },
       {
-        title: "Produto digital no varejo: desafios e oportunidades",
+        title: "O perfil do cliente no físico e no digital",
         description:
-          "Análise das principais frentes de evolução de produtos digitais em redes varejistas com alta capilaridade física e digital.",
-        type: "LinkedIn",
-        date: "2024",
+          "Como será o consumidor do futuro? A multicanalidade se torna cada vez mais forte: o cliente que começa a jornada de compra no físico e termina no digital e vice-versa.",
+        type: "Spotify",
+        date: "2023",
       },
     ],
     ctaLabel: "Ver no LinkedIn",
