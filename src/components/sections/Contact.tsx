@@ -86,9 +86,9 @@ export function Contact({ content }: ContactProps) {
       setRecaptchaError(false);
       setSubmitError(false);
 
-      // Execute reCAPTCHA v3 if configured. The token is sent to Formspree
-      // as "g-recaptcha-response" and verified server-side by Formspree
-      // (requires the reCAPTCHA Secret Key in the form's Settings → reCAPTCHA).
+      // Execute reCAPTCHA v3 if configured. The token is verified
+      // server-side in /api/contact (Google siteverify) before the
+      // message is delivered via Resend.
       let recaptchaToken: string | undefined;
       if (hasRecaptcha) {
         if (!executeRecaptcha) {
@@ -106,50 +106,39 @@ export function Contact({ content }: ContactProps) {
         }
       }
 
-      const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
-
-      if (formspreeId) {
-        try {
-          const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json", Accept: "application/json" },
-            body: JSON.stringify({
-              name: form.name,
-              email: form.email,
-              company: form.company,
-              subject: form.subject,
-              message: form.message,
-              ...(recaptchaToken && { "g-recaptcha-response": recaptchaToken }),
-            }),
-          });
-          if (res.ok) {
-            setSubmitted(true);
-            setForm(initialForm);
+      try {
+        // Barra final obrigatória: trailingSlash no next.config redireciona
+        // /api/contact → /api/contact/ com 308
+        const res = await fetch("/api/contact/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: form.name,
+            email: form.email,
+            company: form.company,
+            subject: form.subject,
+            message: form.message,
+            recaptchaToken,
+          }),
+        });
+        if (res.ok) {
+          setSubmitted(true);
+          setForm(initialForm);
+        } else {
+          const data = (await res.json().catch(() => null)) as
+            | { error?: string }
+            | null;
+          if (data?.error === "recaptcha") {
+            setRecaptchaError(true);
+          } else if (data?.error === "not_configured") {
+            // Backend sem Resend configurado: abre o cliente de e-mail
+            window.location.href = `mailto:${links.email.replace("mailto:", "")}?subject=${encodeURIComponent(form.subject || "Contato via site")}&body=${encodeURIComponent(`Nome: ${form.name}\nEmpresa: ${form.company}\n\n${form.message}`)}`;
           } else {
-            const data = (await res.json().catch(() => null)) as {
-              error?: string;
-              errors?: { code?: string; message?: string }[];
-            } | null;
-            const isRecaptchaFailure = [
-              data?.error ?? "",
-              ...(data?.errors?.map((e) => `${e.code} ${e.message}`) ?? []),
-            ]
-              .join(" ")
-              .toLowerCase()
-              .includes("captcha");
-            if (isRecaptchaFailure) {
-              setRecaptchaError(true);
-            } else {
-              setSubmitError(true);
-            }
+            setSubmitError(true);
           }
-        } catch {
-          window.location.href = `mailto:${links.email.replace("mailto:", "")}?subject=${encodeURIComponent(form.subject || "Contato via site")}&body=${encodeURIComponent(form.message)}`;
         }
-      } else {
-        window.location.href = `mailto:${links.email.replace("mailto:", "")}?subject=${encodeURIComponent(form.subject || "Contato via site")}&body=${encodeURIComponent(`Nome: ${form.name}\nEmpresa: ${form.company}\n\n${form.message}`)}`;
-        setSubmitted(true);
-        setForm(initialForm);
+      } catch {
+        window.location.href = `mailto:${links.email.replace("mailto:", "")}?subject=${encodeURIComponent(form.subject || "Contato via site")}&body=${encodeURIComponent(form.message)}`;
       }
 
       setSubmitting(false);
