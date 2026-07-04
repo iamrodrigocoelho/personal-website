@@ -41,6 +41,7 @@ export function Contact({ content }: ContactProps) {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [recaptchaError, setRecaptchaError] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
   const { executeRecaptcha } = useGoogleReCaptcha();
 
@@ -67,6 +68,7 @@ export function Contact({ content }: ContactProps) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
     if (recaptchaError) setRecaptchaError(false);
+    if (submitError) setSubmitError(false);
   };
 
   const handleSubmit = useCallback(
@@ -82,10 +84,19 @@ export function Contact({ content }: ContactProps) {
 
       setSubmitting(true);
       setRecaptchaError(false);
+      setSubmitError(false);
 
-      // Execute reCAPTCHA v3 if configured
+      // Execute reCAPTCHA v3 if configured. The token is sent to Formspree
+      // as "g-recaptcha-response" and verified server-side by Formspree
+      // (requires the reCAPTCHA Secret Key in the form's Settings → reCAPTCHA).
       let recaptchaToken: string | undefined;
-      if (hasRecaptcha && executeRecaptcha) {
+      if (hasRecaptcha) {
+        if (!executeRecaptcha) {
+          // Script do reCAPTCHA ainda não carregou
+          setRecaptchaError(true);
+          setSubmitting(false);
+          return;
+        }
         try {
           recaptchaToken = await executeRecaptcha("contact_form");
         } catch {
@@ -114,6 +125,23 @@ export function Contact({ content }: ContactProps) {
           if (res.ok) {
             setSubmitted(true);
             setForm(initialForm);
+          } else {
+            const data = (await res.json().catch(() => null)) as {
+              error?: string;
+              errors?: { code?: string; message?: string }[];
+            } | null;
+            const isRecaptchaFailure = [
+              data?.error ?? "",
+              ...(data?.errors?.map((e) => `${e.code} ${e.message}`) ?? []),
+            ]
+              .join(" ")
+              .toLowerCase()
+              .includes("captcha");
+            if (isRecaptchaFailure) {
+              setRecaptchaError(true);
+            } else {
+              setSubmitError(true);
+            }
           }
         } catch {
           window.location.href = `mailto:${links.email.replace("mailto:", "")}?subject=${encodeURIComponent(form.subject || "Contato via site")}&body=${encodeURIComponent(form.message)}`;
@@ -266,7 +294,13 @@ export function Contact({ content }: ContactProps) {
 
               {recaptchaError && (
                 <p role="alert" className="text-xs text-[#ef4444]">
-                  Falha na verificação de segurança. Tente novamente.
+                  {contact.form.recaptchaErrorMessage}
+                </p>
+              )}
+
+              {submitError && (
+                <p role="alert" className="text-xs text-[#ef4444]">
+                  {contact.form.errorMessage}
                 </p>
               )}
 

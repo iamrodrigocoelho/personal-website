@@ -266,6 +266,9 @@ export const en: SiteContent = {
       message: "Message",
       submit: "Send message",
       successMessage: "Message sent successfully! I'll get back to you shortly.",
+      errorMessage:
+        "The message could not be sent. Please try again or use one of the contact links.",
+      recaptchaErrorMessage: "Security verification failed. Please try again.",
     },
     orLabel: "or reach out via",
     linkedinLabel: "LinkedIn",

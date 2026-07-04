@@ -44,6 +44,7 @@ cp .env.example .env.local
 | `NEXT_PUBLIC_GA_ID` | Não | Google Analytics 4 Measurement ID (ex: `G-XXXXXXXXXX`) |
 | `NEXT_PUBLIC_CLARITY_ID` | Não | Microsoft Clarity Project ID |
 | `NEXT_PUBLIC_FORMSPREE_ID` | Não | Formspree Form ID para o formulário de contato |
+| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | Não | Google reCAPTCHA v3 Site Key (chave pública) |
 
 Se as variáveis estiverem vazias, analytics não são carregados e o formulário usa fallback `mailto:`.
 
@@ -96,6 +97,17 @@ O formulário suporta dois modos:
 
 **Modo mailto (fallback):**
 - Se `NEXT_PUBLIC_FORMSPREE_ID` não estiver configurado, o envio abre o cliente de e-mail padrão do usuário com os dados preenchidos.
+
+**Proteção anti-spam com Google reCAPTCHA v3 (opcional):**
+
+Como o site é um export estático (sem servidor próprio), a verificação do token é feita pelo Formspree, que aceita [chaves reCAPTCHA customizadas](https://help.formspree.io/articles/form-and-project-settings/using-recaptcha-v3).
+
+1. Crie as chaves em [google.com/recaptcha/admin](https://www.google.com/recaptcha/admin) escolhendo o tipo **reCAPTCHA v3**
+2. Registre o domínio do site (e `localhost` para testes)
+3. Adicione a **Site Key** (pública) ao `.env.local`: `NEXT_PUBLIC_RECAPTCHA_SITE_KEY=...`
+4. Cole a **Secret Key** (privada) no painel do Formspree, em **Settings → reCAPTCHA** do seu formulário — nunca no código ou em variáveis `NEXT_PUBLIC_*`
+
+Com isso, o formulário executa o reCAPTCHA v3 de forma invisível no envio (ação `contact_form`) e manda o token no campo `g-recaptcha-response`; o Formspree valida o token junto ao Google antes de aceitar a mensagem. Sem as chaves, o formulário continua funcionando normalmente, protegido apenas pelo honeypot.
 
 ---
 

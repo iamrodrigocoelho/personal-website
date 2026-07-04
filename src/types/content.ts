@@ -117,6 +117,8 @@ export interface ContactContent {
     message: string;
     submit: string;
     successMessage: string;
+    errorMessage: string;
+    recaptchaErrorMessage: string;
   };
   orLabel: string;
   linkedinLabel: string;

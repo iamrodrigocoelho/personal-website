@@ -278,6 +278,10 @@ export const pt: SiteContent = {
       submit: "Enviar mensagem",
       successMessage:
         "Mensagem enviada com sucesso! Responderei em breve.",
+      errorMessage:
+        "Não foi possível enviar a mensagem. Tente novamente ou use um dos contatos ao lado.",
+      recaptchaErrorMessage:
+        "Falha na verificação de segurança. Tente novamente.",
     },
     orLabel: "ou entre em contato por",
     linkedinLabel: "LinkedIn",
