@@ -1,6 +1,6 @@
-# iamrodrigocoelho.com
+# rodrigocoelho.me
 
-Landing page pessoal de Rodrigo Coelho — executivo de Produto e Tecnologia com atuação em IA Generativa, transformação digital e inovação.
+Landing page pessoal de Rodrigo Coelho, executivo de Produto e Tecnologia com atuação em IA Generativa, transformação digital e inovação.
 
 Construída com **Next.js 16**, **TypeScript**, **Tailwind CSS v4** e **App Router**. Roda como aplicação **Node.js** (deploy na Hostinger), com rota de API própria para o formulário de contato (reCAPTCHA v3 + Resend).
 
