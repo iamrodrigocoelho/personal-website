@@ -157,7 +157,7 @@ export const en: SiteContent = {
           "Articles and analyses on energy, AI, data centers, Brazil's energy matrix, and competitive advantage in sustainable business.",
         tags: ["AI", "Sustainability", "ESG", "Editorial"],
         ctaLabel: "Read article on ESG Inside",
-        ctaHref: "https://INSERIR-LINK-DO-ARTIGO",
+        ctaHref: "https://esginside.com.br/2026/04/24/o-apetite-energetico-dos-llms-e-a-vantagem-competitiva-da-matriz-energetica-brasileira/",
       },
       {
         title: "Executive Education",
@@ -180,7 +180,7 @@ export const en: SiteContent = {
           "Analysis of the growing energy consumption of language models, the role of data centers, and the strategic opportunity of Brazil's energy matrix in advancing Artificial Intelligence.",
         type: "Magazine",
         date: "2025",
-        href: "https://INSERIR-LINK-DO-ARTIGO",
+        href: "https://esginside.com.br/2026/04/24/o-apetite-energetico-dos-llms-e-a-vantagem-competitiva-da-matriz-energetica-brasileira/",
         featured: true,
       },
       {
@@ -291,9 +291,9 @@ export const en: SiteContent = {
       { label: "Contact", href: "#contato" },
     ],
     contactLinks: [
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/SEU-LINKEDIN" },
-      { label: "WhatsApp", href: "https://wa.me/55SEUNUMERO" },
-      { label: "Email", href: "mailto:SEUEMAIL" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/iamrodrigocoelho/" },
+      { label: "WhatsApp", href: "https://wa.me/5521997992075" },
+      { label: "Email", href: "mailto:contato@rodrigocoelho.me" },
       { label: "Resume", href: "/curriculo-rodrigo-coelho.pdf" },
     ],
   },
@@ -302,15 +302,15 @@ export const en: SiteContent = {
     description:
       "Personal landing page of Rodrigo Coelho, Product and Technology executive focused on Generative AI, digital transformation, sustainability, articles, classes and projects.",
     ogImage: "/og-image.png",
-    url: "https://iamrodrigocoelho.com",
+    url: "https://rodrigocoelho.me",
   },
   links: {
-    linkedin: "https://www.linkedin.com/in/SEU-LINKEDIN",
-    whatsapp: "https://wa.me/55SEUNUMERO",
-    email: "mailto:SEUEMAIL",
+    linkedin: "https://www.linkedin.com/in/iamrodrigocoelho/",
+    whatsapp: "https://wa.me/5521997992075",
+    email: "mailto:contato@rodrigocoelho.me",
     resume: "/curriculo-rodrigo-coelho.pdf",
-    articleEsgInside: "https://INSERIR-LINK-DO-ARTIGO",
-    googleScholar: "https://scholar.google.com/citations?user=INSERIR-USER-ID",
-    medium: "https://medium.com/@INSERIR-USERNAME",
+    articleEsgInside: "https://esginside.com.br/2026/04/24/o-apetite-energetico-dos-llms-e-a-vantagem-competitiva-da-matriz-energetica-brasileira/",
+    googleScholar: "https://scholar.google.com/citations?user=QwdZe_oAAAAJ&hl=en",
+    medium: "https://medium.com/@iamrodrigocoelho",
   },
 };

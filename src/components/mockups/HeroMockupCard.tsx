@@ -34,7 +34,7 @@ export function HeroMockupCard() {
         <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
         <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
         <div className="ml-3 flex-1 bg-white rounded-md px-3 py-1 border border-[#e5e7eb] max-w-[180px]">
-          <span className="text-[10px] text-[#898989] font-mono">iamrodrigocoelho.com</span>
+          <span className="text-[10px] text-[#898989] font-mono">rodrigocoelho.me</span>
         </div>
       </div>
 

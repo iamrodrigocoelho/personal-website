@@ -306,7 +306,7 @@ export const pt: SiteContent = {
     contactLinks: [
       { label: "LinkedIn", href: "https://www.linkedin.com/in/iamrodrigocoelho/" },
       { label: "WhatsApp", href: "https://wa.me/5521997992075" },
-      { label: "E-mail", href: "mailto:contato@iamrodrigocoelho.com" },
+      { label: "E-mail", href: "mailto:contato@rodrigocoelho.me" },
       { label: "Currículo", href: "/curriculo-rodrigo-coelho.pdf" },
     ],
   },
@@ -315,12 +315,12 @@ export const pt: SiteContent = {
     description:
       "Landing page pessoal de Rodrigo Coelho, executivo de Produto e Tecnologia com atuação em IA Generativa, transformação digital, sustentabilidade, artigos, aulas e projetos.",
     ogImage: "/og-image.png",
-    url: "https://iamrodrigocoelho.com",
+    url: "https://rodrigocoelho.me",
   },
   links: {
     linkedin: "https://www.linkedin.com/in/iamrodrigocoelho/",
     whatsapp: "https://wa.me/5521997992075",
-    email: "mailto:SEUEMAIL",
+    email: "mailto:contato@rodrigocoelho.me",
     resume: "/curriculo-rodrigo-coelho.pdf",
     articleEsgInside: "https://esginside.com.br/2026/04/24/o-apetite-energetico-dos-llms-e-a-vantagem-competitiva-da-matriz-energetica-brasileira/",
     googleScholar: "https://scholar.google.com/citations?user=QwdZe_oAAAAJ&hl=en",

@@ -45,7 +45,7 @@ export function Header({ content, lang, onLangChange }: HeaderProps) {
           <a
             href="#"
             aria-label="Rodrigo Coelho — voltar ao topo"
-            className="flex-shrink-0 font-semibold text-[#111111] text-[15px] tracking-tight hover:opacity-75 transition-opacity"
+            className="flex-shrink-0 font-[family-name:var(--font-orbitron)] font-semibold uppercase text-[#111111] text-[15px] tracking-tight hover:opacity-75 transition-opacity"
           >
             {content.nav.logo}
           </a>
