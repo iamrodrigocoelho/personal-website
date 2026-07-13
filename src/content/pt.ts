@@ -126,14 +126,6 @@ export const pt: SiteContent = {
           "Atuação em disciplinas relacionadas a negócios sustentáveis, inovação, tecnologia aplicada e sustentabilidade, contribuindo para a formação de profissionais e lideranças executivas.",
         tags: ["Educação Executiva", "Sustentabilidade", "Inovação", "MBA"],
       },
-      {
-        role: "Produção Acadêmica e Editorial",
-        company: "Publicações e periódicos",
-        period: "2019 — Presente",
-        description:
-          "Produção de artigos, análises e pesquisas sobre Inteligência Artificial, sustentabilidade, tecnologia, matriz energética, negócios digitais e transformação organizacional.",
-        tags: ["IA", "ESG", "Artigos", "Pesquisa", "Tecnologia"],
-      },
     ],
   },
   projects: {

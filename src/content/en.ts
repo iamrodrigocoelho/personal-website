@@ -125,14 +125,6 @@ export const en: SiteContent = {
           "Teaching in disciplines related to sustainable business, innovation, applied technology, and sustainability, contributing to the development of professional and executive leaders.",
         tags: ["Executive Education", "Sustainability", "Innovation", "MBA"],
       },
-      {
-        role: "Academic & Editorial Production",
-        company: "Publications and journals",
-        period: "2019 — Present",
-        description:
-          "Production of articles, analyses, and research on Artificial Intelligence, sustainability, technology, energy matrix, digital business, and organizational transformation.",
-        tags: ["AI", "ESG", "Articles", "Research", "Technology"],
-      },
     ],
   },
   projects: {
