@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Section, SectionHeader } from "@/components/layout/Section";
 import { Badge } from "@/components/ui/Badge";
 import type { SiteContent } from "@/types/content";
@@ -31,6 +32,15 @@ export function Experience({ content }: ExperienceProps) {
                   {item.role}
                 </h3>
                 <p className="text-sm font-medium text-[#6b7280]">{item.company}</p>
+                {item.logo && (
+                  <Image
+                    src={item.logo}
+                    alt={item.company}
+                    width={160}
+                    height={28}
+                    className="mt-2 h-5 w-auto object-contain"
+                  />
+                )}
               </div>
               {/* Right — description + tags */}
               <div className="lg:col-span-8">

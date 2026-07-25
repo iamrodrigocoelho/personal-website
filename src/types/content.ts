@@ -42,6 +42,7 @@ export interface ExperienceItem {
   period: string;
   description: string;
   tags: string[];
+  logo?: string;
 }
 
 export interface ExperienceContent {

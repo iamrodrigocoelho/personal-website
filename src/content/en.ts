@@ -96,6 +96,7 @@ export const en: SiteContent = {
       {
         role: "Head of Product & Technology",
         company: "Drogaria Venancio",
+        logo: "/logos/venancio.png",
         period: "2025 — Present",
         description:
           "Leadership of digital products, platforms, website, app, POS, and application support, focused on digital transformation, operational efficiency, customer experience, and adoption of emerging technologies including Generative AI and automation.",
@@ -104,6 +105,7 @@ export const en: SiteContent = {
       {
         role: "Technology Manager",
         company: "Americanas S.A.",
+        logo: "/logos/americanas.png",
         period: "2022 — 2025",
         description:
           "Large-scale environment with experience in technology, digital operations, critical systems support, e-commerce, marketplace, incident management, and team leadership at a company handling millions of daily transactions.",
@@ -112,6 +114,7 @@ export const en: SiteContent = {
       {
         role: "Group Technical Product Manager",
         company: "Americanas S.A.",
+        logo: "/logos/americanas.png",
         period: "2019 — 2022",
         description:
           "",
@@ -120,6 +123,7 @@ export const en: SiteContent = {
       {
         role: "Guest Professor",
         company: "LARES - UFRJ",
+        logo: "/logos/lares-logo.png",
         period: "2023 — Present",
         description:
           "Teaching in disciplines related to sustainable business, innovation, applied technology, and sustainability, contributing to the development of professional and executive leaders.",
