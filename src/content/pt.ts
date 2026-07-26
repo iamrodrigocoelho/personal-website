@@ -101,7 +101,7 @@ export const pt: SiteContent = {
         period: "2025 — Presente",
         description:
           "Liderança de produtos digitais, plataformas, site, app, PDV e suporte às aplicações, com foco em transformação digital, eficiência operacional, experiência do cliente e adoção de tecnologias emergentes incluindo IA Generativa e automação.",
-        tags: ["Produto Digital", "Tecnologia", "Varejo", "IA Generativa", "Omnichannel"],
+        tags: ["Produto Digital", "Tecnologia", "Varejo", "IA Generativa", "Omnichannel", "LLM"],
       },
       {
         role: "Gerente de Tecnologia",
@@ -110,25 +110,25 @@ export const pt: SiteContent = {
         period: "2022 — 2025",
         description:
           "Atuação em ambiente de grande escala com experiência em tecnologia, operações digitais, suporte a sistemas críticos, e-commerce, marketplace, incidentes e gestão de times em empresa com milhões de transações diárias.",
-        tags: ["E-commerce", "Marketplace", "Operações", "Tecnologia", "Gestão"],
+        tags: ["E-commerce", "Marketplace", "Operações", "Tecnologia", "Gestão", "IA Generativa", "Agentes de IA"],
       },
       {
         role: "Group Technical Product Manager",
         company: "Americanas S.A.",
         logo: "/logos/americanas.png",
-        period: "2019 — 2022",
+        period: "2021 — 2022",
         description:
           "",
         tags: ["Product Management", "E-commerce", "Marketplace", "Site Reliability Engineering", "Tecnologia"],
       },
       {
-        role: "Professor Convidado",
-        company: "LARES - UFRJ",
-        logo: "/logos/lares-logo.png",
-        period: "2023 — Presente",
+        role: "Group Technical Product Manager",
+        company: "B2W Digital",
+        logo: "/logos/b2w-digital.png",
+        period: "2019 — 2021",
         description:
           "Atuação em disciplinas relacionadas a negócios sustentáveis, inovação, tecnologia aplicada e sustentabilidade, contribuindo para a formação de profissionais e lideranças executivas.",
-        tags: ["Educação Executiva", "Sustentabilidade", "Inovação", "MBA"],
+        tags: ["Product Management", "Desenvolvimento de Software", "Inovação", "E-Commerce"],
       },
     ],
   },

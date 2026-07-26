@@ -100,7 +100,7 @@ export const en: SiteContent = {
         period: "2025 — Present",
         description:
           "Leadership of digital products, platforms, website, app, POS, and application support, focused on digital transformation, operational efficiency, customer experience, and adoption of emerging technologies including Generative AI and automation.",
-        tags: ["Digital Product", "Technology", "Retail", "Generative AI", "Omnichannel"],
+        tags: ["Digital Product", "Technology", "Retail", "Generative AI", "Omnichannel", "AI Agents"],
       },
       {
         role: "Technology Manager",
@@ -109,25 +109,25 @@ export const en: SiteContent = {
         period: "2022 — 2025",
         description:
           "Large-scale environment with experience in technology, digital operations, critical systems support, e-commerce, marketplace, incident management, and team leadership at a company handling millions of daily transactions.",
-        tags: ["E-commerce", "Marketplace", "Operations", "Technology", "Management"],
+        tags: ["E-commerce", "Marketplace", "Operations", "Technology", "Management", "Generative AI", "AI Agents"],
       },
       {
         role: "Group Technical Product Manager",
         company: "Americanas S.A.",
         logo: "/logos/americanas.png",
-        period: "2019 — 2022",
+        period: "2021 — 2022",
         description:
           "",
-        tags: ["Product Management", "E-commerce", "Marketplace", "Site Reliability Engineering", "Technology"],
+        tags: ["Product Management", "E-commerce", "Marketplace", "Software Engineer", "Site Reliability Engineering", "Technology"],
       },
       {
-        role: "Guest Professor",
-        company: "LARES - UFRJ",
-        logo: "/logos/lares-logo.png",
-        period: "2023 — Present",
+        role: "Group Technical Product Manager",
+        company: "B2W Digital",
+        logo: "/logos/b2w-digital.png",
+        period: "2019 — 2021",
         description:
           "Teaching in disciplines related to sustainable business, innovation, applied technology, and sustainability, contributing to the development of professional and executive leaders.",
-        tags: ["Executive Education", "Sustainability", "Innovation", "MBA"],
+        tags: ["Product Management", "Software Engineer", "Innovation", "MBA"],
       },
     ],
   },
