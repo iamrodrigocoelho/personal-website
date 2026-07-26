@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Section, SectionHeader } from "@/components/layout/Section";
 import { Badge } from "@/components/ui/Badge";
 import type { SiteContent } from "@/types/content";
@@ -5,6 +6,12 @@ import type { SiteContent } from "@/types/content";
 interface ExperienceProps {
   content: SiteContent;
 }
+
+// Per-logo height overrides (default is h-5 / 20px)
+const LOGO_HEIGHT: Record<string, string> = {
+  "/logos/americanas.png": "h-6", // +20%
+  "/logos/b2w-digital.png": "h-11", // selo circular — maior para equilibrar com os wordmarks
+};
 
 export function Experience({ content }: ExperienceProps) {
   const { experience } = content;
@@ -31,6 +38,15 @@ export function Experience({ content }: ExperienceProps) {
                   {item.role}
                 </h3>
                 <p className="text-sm font-medium text-[#6b7280]">{item.company}</p>
+                {item.logo && (
+                  <Image
+                    src={item.logo}
+                    alt={item.company}
+                    width={160}
+                    height={28}
+                    className={`mt-2 w-auto object-contain ${LOGO_HEIGHT[item.logo] ?? "h-5"}`}
+                  />
+                )}
               </div>
               {/* Right — description + tags */}
               <div className="lg:col-span-8">

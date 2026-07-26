@@ -1,8 +1,8 @@
-# iamrodrigocoelho.com
+# rodrigocoelho.me
 
-Landing page pessoal de Rodrigo Coelho — executivo de Produto e Tecnologia com atuação em IA Generativa, transformação digital e inovação.
+Landing page pessoal de Rodrigo Coelho, executivo de Produto e Tecnologia com atuação em IA Generativa, transformação digital e inovação.
 
-Construída com **Next.js 16**, **TypeScript**, **Tailwind CSS v4** e **App Router**. Geração 100% estática (compatível com Hostinger).
+Construída com **Next.js 16**, **TypeScript**, **Tailwind CSS v4** e **App Router**. Roda como aplicação **Node.js** (deploy na Hostinger), com rota de API própria para o formulário de contato (reCAPTCHA v3 + Resend).
 
 ---
 
@@ -43,9 +43,15 @@ cp .env.example .env.local
 |---|---|---|
 | `NEXT_PUBLIC_GA_ID` | Não | Google Analytics 4 Measurement ID (ex: `G-XXXXXXXXXX`) |
 | `NEXT_PUBLIC_CLARITY_ID` | Não | Microsoft Clarity Project ID |
-| `NEXT_PUBLIC_FORMSPREE_ID` | Não | Formspree Form ID para o formulário de contato |
+| `RESEND_API_KEY` | Não | API Key do [Resend](https://resend.com) para envio do formulário (server-side) |
+| `CONTACT_TO_EMAIL` | Não | E-mail que recebe as mensagens do formulário |
+| `CONTACT_FROM_EMAIL` | Não | Remetente (domínio verificado no Resend); padrão: `onboarding@resend.dev` |
+| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | Não | Google reCAPTCHA v3 Site Key (chave pública) |
+| `RECAPTCHA_SECRET_KEY` | Não | Google reCAPTCHA v3 Secret Key (verificação server-side) |
 
 Se as variáveis estiverem vazias, analytics não são carregados e o formulário usa fallback `mailto:`.
+
+> As variáveis `NEXT_PUBLIC_*` são embutidas no JavaScript **no momento do build**; as demais são lidas pelo servidor em tempo de execução e nunca chegam ao browser.
 
 ### 2. Links pessoais
 
@@ -87,15 +93,32 @@ src/app/favicon.ico
 
 ### 6. Formulário de contato
 
-O formulário suporta dois modos:
+O envio passa pela rota interna **`/api/contact`**, que roda no servidor e faz, nesta ordem:
 
-**Modo Formspree (recomendado):**
-1. Crie uma conta em [formspree.io](https://formspree.io)
-2. Crie um novo formulário e copie o ID (ex: `abcdef01`)
-3. Adicione ao `.env.local`: `NEXT_PUBLIC_FORMSPREE_ID=abcdef01`
+1. Descarta bots que preenchem o campo honeypot
+2. Valida os campos obrigatórios
+3. Verifica o token do **reCAPTCHA v3** junto ao Google (exige `success`, ação `contact_form` e score ≥ 0.5) — se `RECAPTCHA_SECRET_KEY` estiver configurada
+4. Envia o e-mail via **API do Resend**
+
+**Configurar o Resend:**
+1. Crie uma conta em [resend.com](https://resend.com) e gere uma **API Key** (menu API Keys)
+2. Verifique seu domínio em **Domains** (registros DNS) para enviar de um endereço próprio, ex: `contato@iamrodrigocoelho.com`
+3. Configure as variáveis:
+   - `RESEND_API_KEY=re_...`
+   - `CONTACT_TO_EMAIL=` e-mail que recebe as mensagens
+   - `CONTACT_FROM_EMAIL="Contato <contato@seudominio.com>"` (opcional; sem domínio verificado o padrão `onboarding@resend.dev` só entrega para o e-mail da própria conta Resend)
+
+O e-mail chega com `Reply-To` preenchido com o endereço de quem enviou o formulário — basta responder normalmente.
+
+**Configurar o Google reCAPTCHA v3 (anti-spam, opcional):**
+1. Crie as chaves em [google.com/recaptcha/admin](https://www.google.com/recaptcha/admin) escolhendo o tipo **reCAPTCHA v3**
+2. Registre o domínio do site (e `localhost` para testes)
+3. Configure as variáveis (sempre em par):
+   - `NEXT_PUBLIC_RECAPTCHA_SITE_KEY=` Site Key (pública)
+   - `RECAPTCHA_SECRET_KEY=` Secret Key (privada, só no servidor)
 
 **Modo mailto (fallback):**
-- Se `NEXT_PUBLIC_FORMSPREE_ID` não estiver configurado, o envio abre o cliente de e-mail padrão do usuário com os dados preenchidos.
+- Se o Resend não estiver configurado (sem `RESEND_API_KEY`/`CONTACT_TO_EMAIL`), o envio abre o cliente de e-mail padrão do usuário com os dados preenchidos.
 
 ---
 
@@ -112,64 +135,60 @@ Edite esses arquivos para atualizar textos, links, experiências, projetos e art
 
 ---
 
-## Build e exportação estática
+## Build e execução em produção
 
 ```bash
-# Build para produção (gera pasta /out)
-npm run build
+npm run build   # build de produção
+npm start       # inicia o servidor Node.js (porta 3000, ou a variável PORT)
 ```
 
-O projeto está configurado com `output: "export"` no `next.config.ts`, gerando HTML/CSS/JS estático na pasta `/out`. Isso garante compatibilidade com hospedagem estática na Hostinger.
+O site roda como aplicação Node.js — necessário para a rota `/api/contact` (verificação do reCAPTCHA e envio via Resend acontecem no servidor).
 
 ---
 
-## Deploy na Hostinger
+## Deploy na Hostinger (Node.js)
 
-### Passo a passo
+A Hostinger suporta aplicações Node.js de duas formas ([documentação](https://www.hostinger.com/support/node-js-hosting-options-at-hostinger/)):
 
-1. Faça o build local:
+### Opção A — Node.js Web Apps (hPanel, planos Business/Cloud)
+
+1. No hPanel, vá em **Websites → Add Website → Node.js Apps**
+2. Escolha **Import Git Repository** e autorize o acesso ao GitHub, selecionando este repositório
+3. Configure build command `npm run build` e start command `npm start`
+4. Em **Environment Variables**, adicione as variáveis do `.env.example` preenchidas — inclusive as `NEXT_PUBLIC_*`, que precisam existir **antes do build**:
+   - `NEXT_PUBLIC_RECAPTCHA_SITE_KEY`
+   - `RECAPTCHA_SECRET_KEY`
+   - `RESEND_API_KEY`
+   - `CONTACT_TO_EMAIL`
+   - `CONTACT_FROM_EMAIL`
+   - `NEXT_PUBLIC_GA_ID` / `NEXT_PUBLIC_CLARITY_ID` (se usar analytics)
+5. Faça o deploy; o painel mostra os logs de build e o status
+
+A cada push no branch configurado, o painel permite redeployar (**Settings & Redeploy**).
+
+### Opção B — VPS
+
+1. Conecte via SSH e instale Node.js 18+ (ex: via `nvm`)
+2. Clone o repositório e crie o `.env.local` com as variáveis preenchidas
+3. Build e execução com um gerenciador de processos:
    ```bash
+   npm install
    npm run build
+   npm install -g pm2
+   pm2 start npm --name site -- start
+   pm2 save && pm2 startup
    ```
+4. Configure um reverse proxy (Nginx/Caddy) apontando para `http://localhost:3000` e ative HTTPS (Let's Encrypt)
 
-2. A pasta `out/` contém todos os arquivos estáticos.
-
-3. Acesse o painel da Hostinger → **File Manager** (ou use FTP/SFTP).
-
-4. Navegue até `public_html/` (ou a pasta raiz do seu domínio).
-
-5. Faça upload de **todo o conteúdo** da pasta `out/` para `public_html/`.
-
-6. Confirme que `index.html` está na raiz de `public_html/`.
-
-### Configurar domínio
+### Domínio e HTTPS
 
 No painel da Hostinger:
-1. Vá em **Domains** → adicione `iamrodrigocoelho.com`
-2. Aponte o DNS para os nameservers da Hostinger
-3. Aguarde a propagação (pode levar até 24h)
-
-### Configurar HTTPS
-
-A Hostinger oferece SSL gratuito via Let's Encrypt. Ative em:
-**Hosting** → **SSL** → **Install SSL Certificate**.
-
-### Arquivo .htaccess (opcional)
-
-Se precisar de redirects ou configurações extras, crie um `.htaccess` na raiz. Exemplo para URLs com trailing slash:
-
-```apache
-Options -MultiViews
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.html [NC,L]
-```
+1. **Domains** → aponte `iamrodrigocoelho.com` para o app/VPS
+2. SSL gratuito via Let's Encrypt: **Hosting → SSL → Install SSL Certificate** (no VPS, use `certbot`)
 
 ---
 
 ## Deploy alternativo (Vercel)
-
-Se preferir usar Vercel (recomendado para Next.js):
 
 ```bash
 npm install -g vercel
@@ -185,6 +204,9 @@ Configure as variáveis de ambiente no painel da Vercel.
 ```
 src/
 ├── app/
+│   ├── api/
+│   │   └── contact/
+│   │       └── route.ts    # POST: verificação reCAPTCHA + envio via Resend
 │   ├── layout.tsx          # Layout global, metadados, analytics
 │   ├── page.tsx            # Página principal
 │   ├── globals.css         # Design tokens (Tailwind v4), estilos base

@@ -97,43 +97,39 @@ export const pt: SiteContent = {
       {
         role: "Head de Produto e Tecnologia",
         company: "Drogaria Venancio",
+        logo: "/logos/venancio.png",
         period: "2025 — Presente",
         description:
           "Liderança de produtos digitais, plataformas, site, app, PDV e suporte às aplicações, com foco em transformação digital, eficiência operacional, experiência do cliente e adoção de tecnologias emergentes incluindo IA Generativa e automação.",
-        tags: ["Produto Digital", "Tecnologia", "Varejo", "IA Generativa", "Omnichannel"],
+        tags: ["Produto Digital", "Tecnologia", "Varejo", "IA Generativa", "Omnichannel", "LLM"],
       },
       {
         role: "Gerente de Tecnologia",
         company: "Americanas S.A.",
+        logo: "/logos/americanas.png",
         period: "2022 — 2025",
         description:
           "Atuação em ambiente de grande escala com experiência em tecnologia, operações digitais, suporte a sistemas críticos, e-commerce, marketplace, incidentes e gestão de times em empresa com milhões de transações diárias.",
-        tags: ["E-commerce", "Marketplace", "Operações", "Tecnologia", "Gestão"],
+        tags: ["E-commerce", "Marketplace", "Operações", "Tecnologia", "Gestão", "IA Generativa", "Agentes de IA"],
       },
       {
         role: "Group Technical Product Manager",
-        company: "Publicações e periódicos",
-        period: "2019 — 2022",
+        company: "Americanas S.A.",
+        logo: "/logos/americanas.png",
+        period: "2021 — 2022",
         description:
           "",
         tags: ["Product Management", "E-commerce", "Marketplace", "Site Reliability Engineering", "Tecnologia"],
       },
       {
-        role: "Professor Convidado",
-        company: "LARES - UFRJ",
-        period: "2023 — Presente",
+        role: "Group Technical Product Manager",
+        company: "B2W Digital",
+        logo: "/logos/b2w-digital.png",
+        period: "2019 — 2021",
         description:
           "Atuação em disciplinas relacionadas a negócios sustentáveis, inovação, tecnologia aplicada e sustentabilidade, contribuindo para a formação de profissionais e lideranças executivas.",
-        tags: ["Educação Executiva", "Sustentabilidade", "Inovação", "MBA"],
+        tags: ["Product Management", "Desenvolvimento de Software", "Inovação", "E-Commerce"],
       },
-      // {
-      //   role: "Produção Acadêmica e Editorial",
-      //   company: "Publicações e periódicos",
-      //   period: "2019 — Presente",
-      //   description:
-      //     "Produção de artigos, análises e pesquisas sobre Inteligência Artificial, sustentabilidade, tecnologia, matriz energética, negócios digitais e transformação organizacional.",
-      //   tags: ["IA", "ESG", "Artigos", "Pesquisa", "Tecnologia"],
-      // },
     ],
   },
   projects: {
@@ -278,6 +274,10 @@ export const pt: SiteContent = {
       submit: "Enviar mensagem",
       successMessage:
         "Mensagem enviada com sucesso! Responderei em breve.",
+      errorMessage:
+        "Não foi possível enviar a mensagem. Tente novamente ou use um dos contatos ao lado.",
+      recaptchaErrorMessage:
+        "Falha na verificação de segurança. Tente novamente.",
     },
     orLabel: "ou entre em contato por",
     linkedinLabel: "LinkedIn",
@@ -302,7 +302,7 @@ export const pt: SiteContent = {
     contactLinks: [
       { label: "LinkedIn", href: "https://www.linkedin.com/in/iamrodrigocoelho/" },
       { label: "WhatsApp", href: "https://wa.me/5521997992075" },
-      { label: "E-mail", href: "mailto:contato@iamrodrigocoelho.com" },
+      { label: "E-mail", href: "mailto:contato@rodrigocoelho.me" },
       { label: "Currículo", href: "/curriculo-rodrigo-coelho.pdf" },
     ],
   },
@@ -311,12 +311,12 @@ export const pt: SiteContent = {
     description:
       "Landing page pessoal de Rodrigo Coelho, executivo de Produto e Tecnologia com atuação em IA Generativa, transformação digital, sustentabilidade, artigos, aulas e projetos.",
     ogImage: "/og-image.png",
-    url: "https://iamrodrigocoelho.com",
+    url: "https://rodrigocoelho.me",
   },
   links: {
     linkedin: "https://www.linkedin.com/in/iamrodrigocoelho/",
     whatsapp: "https://wa.me/5521997992075",
-    email: "mailto:SEUEMAIL",
+    email: "mailto:contato@rodrigocoelho.me",
     resume: "/curriculo-rodrigo-coelho.pdf",
     articleEsgInside: "https://esginside.com.br/2026/04/24/o-apetite-energetico-dos-llms-e-a-vantagem-competitiva-da-matriz-energetica-brasileira/",
     googleScholar: "https://scholar.google.com/citations?user=QwdZe_oAAAAJ&hl=en",

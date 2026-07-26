@@ -77,7 +77,7 @@ export function Footer({ content }: FooterProps) {
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-[#1a1a1a] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <p className="text-xs text-[#898989]">{footer.copyright}</p>
-          <p className="text-xs text-[#898989]">iamrodrigocoelho.com</p>
+          <p className="text-xs text-[#898989]">rodrigocoelho.me</p>
         </div>
       </div>
     </footer>

@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://iamrodrigocoelho.com/sitemap.xml",
+    sitemap: "https://rodrigocoelho.me/sitemap.xml",
   };
 }

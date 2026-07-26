@@ -69,7 +69,7 @@ export function Hero({ content }: HeroProps) {
           </div>
 
           {/* Right column — 5/12 */}
-          <div className="lg:col-span-5 order-first lg:order-last">
+          <div className="hidden lg:block lg:col-span-5 order-first lg:order-last">
             <HeroMockupCard />
           </div>
         </div>

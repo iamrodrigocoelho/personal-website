@@ -96,34 +96,38 @@ export const en: SiteContent = {
       {
         role: "Head of Product & Technology",
         company: "Drogaria Venancio",
-        period: "2023 — Present",
+        logo: "/logos/venancio.png",
+        period: "2025 — Present",
         description:
           "Leadership of digital products, platforms, website, app, POS, and application support, focused on digital transformation, operational efficiency, customer experience, and adoption of emerging technologies including Generative AI and automation.",
-        tags: ["Digital Product", "Technology", "Retail", "Generative AI", "Omnichannel"],
+        tags: ["Digital Product", "Technology", "Retail", "Generative AI", "Omnichannel", "AI Agents"],
       },
       {
         role: "Technology Manager",
         company: "Americanas S.A.",
-        period: "2020 — 2023",
+        logo: "/logos/americanas.png",
+        period: "2022 — 2025",
         description:
           "Large-scale environment with experience in technology, digital operations, critical systems support, e-commerce, marketplace, incident management, and team leadership at a company handling millions of daily transactions.",
-        tags: ["E-commerce", "Marketplace", "Operations", "Technology", "Management"],
+        tags: ["E-commerce", "Marketplace", "Operations", "Technology", "Management", "Generative AI", "AI Agents"],
       },
       {
-        role: "Guest Professor",
-        company: "Higher education institutions",
-        period: "2021 — Present",
+        role: "Group Technical Product Manager",
+        company: "Americanas S.A.",
+        logo: "/logos/americanas.png",
+        period: "2021 — 2022",
+        description:
+          "",
+        tags: ["Product Management", "E-commerce", "Marketplace", "Software Engineer", "Site Reliability Engineering", "Technology"],
+      },
+      {
+        role: "Group Technical Product Manager",
+        company: "B2W Digital",
+        logo: "/logos/b2w-digital.png",
+        period: "2019 — 2021",
         description:
           "Teaching in disciplines related to sustainable business, innovation, applied technology, and sustainability, contributing to the development of professional and executive leaders.",
-        tags: ["Executive Education", "Sustainability", "Innovation", "MBA"],
-      },
-      {
-        role: "Academic & Editorial Production",
-        company: "Publications and journals",
-        period: "2019 — Present",
-        description:
-          "Production of articles, analyses, and research on Artificial Intelligence, sustainability, technology, energy matrix, digital business, and organizational transformation.",
-        tags: ["AI", "ESG", "Articles", "Research", "Technology"],
+        tags: ["Product Management", "Software Engineer", "Innovation", "MBA"],
       },
     ],
   },
@@ -157,7 +161,7 @@ export const en: SiteContent = {
           "Articles and analyses on energy, AI, data centers, Brazil's energy matrix, and competitive advantage in sustainable business.",
         tags: ["AI", "Sustainability", "ESG", "Editorial"],
         ctaLabel: "Read article on ESG Inside",
-        ctaHref: "https://INSERIR-LINK-DO-ARTIGO",
+        ctaHref: "https://esginside.com.br/2026/04/24/o-apetite-energetico-dos-llms-e-a-vantagem-competitiva-da-matriz-energetica-brasileira/",
       },
       {
         title: "Executive Education",
@@ -180,7 +184,7 @@ export const en: SiteContent = {
           "Analysis of the growing energy consumption of language models, the role of data centers, and the strategic opportunity of Brazil's energy matrix in advancing Artificial Intelligence.",
         type: "Magazine",
         date: "2025",
-        href: "https://INSERIR-LINK-DO-ARTIGO",
+        href: "https://esginside.com.br/2026/04/24/o-apetite-energetico-dos-llms-e-a-vantagem-competitiva-da-matriz-energetica-brasileira/",
         featured: true,
       },
       {
@@ -266,6 +270,9 @@ export const en: SiteContent = {
       message: "Message",
       submit: "Send message",
       successMessage: "Message sent successfully! I'll get back to you shortly.",
+      errorMessage:
+        "The message could not be sent. Please try again or use one of the contact links.",
+      recaptchaErrorMessage: "Security verification failed. Please try again.",
     },
     orLabel: "or reach out via",
     linkedinLabel: "LinkedIn",
@@ -288,9 +295,9 @@ export const en: SiteContent = {
       { label: "Contact", href: "#contato" },
     ],
     contactLinks: [
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/SEU-LINKEDIN" },
-      { label: "WhatsApp", href: "https://wa.me/55SEUNUMERO" },
-      { label: "Email", href: "mailto:SEUEMAIL" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/iamrodrigocoelho/" },
+      { label: "WhatsApp", href: "https://wa.me/5521997992075" },
+      { label: "Email", href: "mailto:contato@rodrigocoelho.me" },
       { label: "Resume", href: "/curriculo-rodrigo-coelho.pdf" },
     ],
   },
@@ -299,15 +306,15 @@ export const en: SiteContent = {
     description:
       "Personal landing page of Rodrigo Coelho, Product and Technology executive focused on Generative AI, digital transformation, sustainability, articles, classes and projects.",
     ogImage: "/og-image.png",
-    url: "https://iamrodrigocoelho.com",
+    url: "https://rodrigocoelho.me",
   },
   links: {
-    linkedin: "https://www.linkedin.com/in/SEU-LINKEDIN",
-    whatsapp: "https://wa.me/55SEUNUMERO",
-    email: "mailto:SEUEMAIL",
+    linkedin: "https://www.linkedin.com/in/iamrodrigocoelho/",
+    whatsapp: "https://wa.me/5521997992075",
+    email: "mailto:contato@rodrigocoelho.me",
     resume: "/curriculo-rodrigo-coelho.pdf",
-    articleEsgInside: "https://INSERIR-LINK-DO-ARTIGO",
-    googleScholar: "https://scholar.google.com/citations?user=INSERIR-USER-ID",
-    medium: "https://medium.com/@INSERIR-USERNAME",
+    articleEsgInside: "https://esginside.com.br/2026/04/24/o-apetite-energetico-dos-llms-e-a-vantagem-competitiva-da-matriz-energetica-brasileira/",
+    googleScholar: "https://scholar.google.com/citations?user=QwdZe_oAAAAJ&hl=en",
+    medium: "https://medium.com/@iamrodrigocoelho",
   },
 };

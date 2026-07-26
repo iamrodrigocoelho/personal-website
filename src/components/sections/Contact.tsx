@@ -41,6 +41,7 @@ export function Contact({ content }: ContactProps) {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [recaptchaError, setRecaptchaError] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
   const { executeRecaptcha } = useGoogleReCaptcha();
 
@@ -67,6 +68,7 @@ export function Contact({ content }: ContactProps) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
     if (recaptchaError) setRecaptchaError(false);
+    if (submitError) setSubmitError(false);
   };
 
   const handleSubmit = useCallback(
@@ -82,10 +84,19 @@ export function Contact({ content }: ContactProps) {
 
       setSubmitting(true);
       setRecaptchaError(false);
+      setSubmitError(false);
 
-      // Execute reCAPTCHA v3 if configured
+      // Execute reCAPTCHA v3 if configured. The token is verified
+      // server-side in /api/contact (Google siteverify) before the
+      // message is delivered via Resend.
       let recaptchaToken: string | undefined;
-      if (hasRecaptcha && executeRecaptcha) {
+      if (hasRecaptcha) {
+        if (!executeRecaptcha) {
+          // Script do reCAPTCHA ainda não carregou
+          setRecaptchaError(true);
+          setSubmitting(false);
+          return;
+        }
         try {
           recaptchaToken = await executeRecaptcha("contact_form");
         } catch {
@@ -95,33 +106,39 @@ export function Contact({ content }: ContactProps) {
         }
       }
 
-      const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
-
-      if (formspreeId) {
-        try {
-          const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json", Accept: "application/json" },
-            body: JSON.stringify({
-              name: form.name,
-              email: form.email,
-              company: form.company,
-              subject: form.subject,
-              message: form.message,
-              ...(recaptchaToken && { "g-recaptcha-response": recaptchaToken }),
-            }),
-          });
-          if (res.ok) {
-            setSubmitted(true);
-            setForm(initialForm);
+      try {
+        // Barra final obrigatória: trailingSlash no next.config redireciona
+        // /api/contact → /api/contact/ com 308
+        const res = await fetch("/api/contact/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: form.name,
+            email: form.email,
+            company: form.company,
+            subject: form.subject,
+            message: form.message,
+            recaptchaToken,
+          }),
+        });
+        if (res.ok) {
+          setSubmitted(true);
+          setForm(initialForm);
+        } else {
+          const data = (await res.json().catch(() => null)) as
+            | { error?: string }
+            | null;
+          if (data?.error === "recaptcha") {
+            setRecaptchaError(true);
+          } else if (data?.error === "not_configured") {
+            // Backend sem Resend configurado: abre o cliente de e-mail
+            window.location.href = `mailto:${links.email.replace("mailto:", "")}?subject=${encodeURIComponent(form.subject || "Contato via site")}&body=${encodeURIComponent(`Nome: ${form.name}\nEmpresa: ${form.company}\n\n${form.message}`)}`;
+          } else {
+            setSubmitError(true);
           }
-        } catch {
-          window.location.href = `mailto:${links.email.replace("mailto:", "")}?subject=${encodeURIComponent(form.subject || "Contato via site")}&body=${encodeURIComponent(form.message)}`;
         }
-      } else {
-        window.location.href = `mailto:${links.email.replace("mailto:", "")}?subject=${encodeURIComponent(form.subject || "Contato via site")}&body=${encodeURIComponent(`Nome: ${form.name}\nEmpresa: ${form.company}\n\n${form.message}`)}`;
-        setSubmitted(true);
-        setForm(initialForm);
+      } catch {
+        window.location.href = `mailto:${links.email.replace("mailto:", "")}?subject=${encodeURIComponent(form.subject || "Contato via site")}&body=${encodeURIComponent(form.message)}`;
       }
 
       setSubmitting(false);
@@ -266,7 +283,13 @@ export function Contact({ content }: ContactProps) {
 
               {recaptchaError && (
                 <p role="alert" className="text-xs text-[#ef4444]">
-                  Falha na verificação de segurança. Tente novamente.
+                  {contact.form.recaptchaErrorMessage}
+                </p>
+              )}
+
+              {submitError && (
+                <p role="alert" className="text-xs text-[#ef4444]">
+                  {contact.form.errorMessage}
                 </p>
               )}
 

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Orbitron } from "next/font/google";
 import { Analytics } from "@/components/ui/Analytics";
 import { schemaOrg } from "@/lib/seo";
 import "./globals.css";
@@ -10,15 +10,21 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const orbitron = Orbitron({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-orbitron",
+});
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://iamrodrigocoelho.com"),
+  metadataBase: new URL("https://rodrigocoelho.me"),
   title: "Rodrigo Coelho | Produto, Tecnologia e IA Generativa",
   description:
     "Landing page pessoal de Rodrigo Coelho, executivo de Produto e Tecnologia com atuação em IA Generativa, transformação digital, sustentabilidade, artigos, aulas e projetos.",
   robots: { index: true, follow: true },
   openGraph: {
     type: "profile",
-    url: "https://iamrodrigocoelho.com",
+    url: "https://rodrigocoelho.me",
     title: "Rodrigo Coelho | Produto, Tecnologia e IA Generativa",
     description:
       "Landing page pessoal de Rodrigo Coelho, executivo de Produto e Tecnologia com atuação em IA Generativa, transformação digital, sustentabilidade, artigos, aulas e projetos.",
@@ -39,7 +45,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} h-full antialiased`}>
+    <html lang="pt-BR" className={`${inter.variable} ${orbitron.variable} h-full antialiased`}>
       <head>
         <script
           type="application/ld+json"

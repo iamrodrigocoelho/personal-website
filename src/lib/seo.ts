@@ -42,7 +42,7 @@ export const schemaOrg = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Rodrigo Coelho",
-  url: "https://iamrodrigocoelho.com",
+  url: "https://rodrigocoelho.me",
   jobTitle: "Head de Produto e Tecnologia",
   description:
     "Executivo de Produto e Tecnologia com atuação em Inteligência Artificial Generativa, transformação digital e inovação.",
