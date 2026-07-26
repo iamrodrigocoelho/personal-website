@@ -7,6 +7,12 @@ interface ExperienceProps {
   content: SiteContent;
 }
 
+// Per-logo height overrides (default is h-5 / 20px)
+const LOGO_HEIGHT: Record<string, string> = {
+  "/logos/americanas.png": "h-6", // +20%
+  "/logos/b2w-digital.png": "h-11", // selo circular — maior para equilibrar com os wordmarks
+};
+
 export function Experience({ content }: ExperienceProps) {
   const { experience } = content;
 
@@ -38,7 +44,7 @@ export function Experience({ content }: ExperienceProps) {
                     alt={item.company}
                     width={160}
                     height={28}
-                    className="mt-2 h-5 w-auto object-contain"
+                    className={`mt-2 w-auto object-contain ${LOGO_HEIGHT[item.logo] ?? "h-5"}`}
                   />
                 )}
               </div>
