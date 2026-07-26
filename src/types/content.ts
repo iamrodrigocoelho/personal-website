@@ -106,6 +106,19 @@ export interface TeachingContent {
   education: EducationItem[];
 }
 
+export interface CertificationItem {
+  name: string;
+  issuer: string;
+  logo: string;
+}
+
+export interface CertificationsContent {
+  sectionLabel: string;
+  title: string;
+  subtitle: string;
+  items: CertificationItem[];
+}
+
 export interface ContactContent {
   sectionLabel: string;
   title: string;
@@ -162,6 +175,7 @@ export interface SiteContent {
   projects: ProjectsContent;
   articles: ArticlesContent;
   teaching: TeachingContent;
+  certifications: CertificationsContent;
   contact: ContactContent;
   footer: FooterContent;
   seo: SeoContent;
