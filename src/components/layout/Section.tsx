@@ -25,6 +25,7 @@ interface SectionHeaderProps {
   subtitle?: string;
   align?: "left" | "center";
   id?: string;
+  maxWidthClass?: string;
 }
 
 export function SectionHeader({
@@ -33,10 +34,11 @@ export function SectionHeader({
   subtitle,
   align = "left",
   id,
+  maxWidthClass = "max-w-2xl",
 }: SectionHeaderProps) {
   const alignClass = align === "center" ? "text-center mx-auto" : "";
   return (
-    <div className={`mb-12 max-w-2xl ${alignClass}`}>
+    <div className={`mb-12 ${maxWidthClass} ${alignClass}`}>
       {label && (
         <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[#6b7280] mb-3">
           {label}

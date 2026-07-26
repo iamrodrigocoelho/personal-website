@@ -35,6 +35,7 @@ export function Articles({ content }: ArticlesProps) {
         label={articles.sectionLabel}
         title={articles.title}
         subtitle={articles.subtitle}
+        maxWidthClass="max-w-4xl"
       />
 
       <div className="space-y-5">
