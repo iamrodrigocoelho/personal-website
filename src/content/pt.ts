@@ -91,7 +91,7 @@ export const pt: SiteContent = {
   },
   experience: {
     sectionLabel: "Experiência",
-    title: "Trajetória executiva",
+    title: "Experiência profissional",
     subtitle: "Experiências que moldaram minha atuação em Produto e Tecnologia.",
     items: [
       {
@@ -101,7 +101,7 @@ export const pt: SiteContent = {
         period: "2025 — Presente",
         description:
           "Liderança de produtos digitais, plataformas, site, app, PDV e suporte às aplicações, com foco em transformação digital, eficiência operacional, experiência do cliente e adoção de tecnologias emergentes incluindo IA Generativa e automação.",
-        tags: ["Produto Digital", "Tecnologia", "Varejo", "IA Generativa", "Omnichannel", "LLM"],
+        tags: ["Product Management", "Engenharia de Software", "Varejo","E-commerce", "IA Generativa", "Omnichannel", "LLM"],
       },
       {
         role: "Gerente de Tecnologia",
@@ -119,7 +119,7 @@ export const pt: SiteContent = {
         period: "2021 — 2022",
         description:
           "",
-        tags: ["Product Management", "E-commerce", "Marketplace", "Site Reliability Engineering", "Tecnologia"],
+        tags: ["Product Management","Engenharia de Software", "E-commerce", "Marketplace", "Site Reliability Engineering", "Tecnologia"],
       },
       {
         role: "Group Technical Product Manager",
@@ -127,8 +127,17 @@ export const pt: SiteContent = {
         logo: "/logos/b2w-digital.png",
         period: "2019 — 2021",
         description:
-          "Atuação em disciplinas relacionadas a negócios sustentáveis, inovação, tecnologia aplicada e sustentabilidade, contribuindo para a formação de profissionais e lideranças executivas.",
-        tags: ["Product Management", "Desenvolvimento de Software", "Inovação", "E-Commerce"],
+          "",
+        tags: ["Product Management", "Engenharia de Software", "Inovação", "E-Commerce"],
+      },
+      {
+        role: "Especialista em Tecnologia",
+        company: "B2W Digital",
+        logo: "/logos/b2w-digital.png",
+        period: "2013 — 2019",
+        description:
+          "",
+        tags: ["E-Commerce", "Engenharia de Software", "Scrum"],
       },
     ],
   },
@@ -174,10 +183,9 @@ export const pt: SiteContent = {
     ctaLabel: "Conectar no LinkedIn",
   },
   articles: {
-    sectionLabel: "Artigos",
-    title: "Artigos e publicações",
-    subtitle:
-      "Análises, ensaios e publicações acadêmicas sobre tecnologia, IA e sustentabilidade.",
+    sectionLabel: "Pesquisa",
+    title: "Artigos acadêmicos, publicações e citações",
+    subtitle: "Produção acadêmica que conecta pesquisa, tecnologia, inovação e aplicação prática.",
     items: [
       {
         title: "O apetite energético dos LLMs e a vantagem competitiva da matriz brasileira",
@@ -217,10 +225,10 @@ export const pt: SiteContent = {
     ctaMediumLabel: "Ver no Medium",
   },
   teaching: {
-    sectionLabel: "Aulas e Formação",
-    title: "Educação executiva e formação",
+    sectionLabel: "Conhecimento",
+    title: "Palestras, entrevistas e docência",
     subtitle:
-      "Atuação como professor convidado, palestrante e profissional com formação multidisciplinar.",
+      "Compartilho conhecimentos e experiências por meio de palestras, entrevistas e aulas.",
     teaching: [
       {
         category: "Aulas e MBAs",
@@ -257,6 +265,39 @@ export const pt: SiteContent = {
         degree: "Pós-graduação em Inteligência Artificial e Computacional",
         institution: "Universidade Federal de Viçosa",
         year: "2025",
+      },
+    ],
+  },
+  certifications: {
+    sectionLabel: "Certificações",
+    title: "Certificações profissionais",
+    subtitle:
+      "Certificações que validam minha atuação em cloud, inteligência artificial e agilidade.",
+    items: [
+      {
+        name: "AWS Certified Cloud Practitioner",
+        issuer: "Amazon Web Services",
+        logo: "/logos/certifications/aws-cloud-logo.png",
+      },
+      {
+        name: "Azure AI Fundamentals (AI-900)",
+        issuer: "Microsoft",
+        logo: "/logos/certifications/ai-900-logo.png",
+      },
+      {
+        name: "Azure Fundamentals (AZ-900)",
+        issuer: "Microsoft",
+        logo: "/logos/certifications/az-900-logo.png",
+      },
+      {
+        name: "Certified ScrumMaster (CSM)",
+        issuer: "Scrum Alliance",
+        logo: "/logos/certifications/csm-logo.png",
+      },
+      {
+        name: "Certified Scrum Product Owner (CSPO)",
+        issuer: "Scrum Alliance",
+        logo: "/logos/certifications/cspo-logo.png",
       },
     ],
   },

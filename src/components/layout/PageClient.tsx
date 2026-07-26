@@ -11,6 +11,7 @@ import { Experience } from "@/components/sections/Experience";
 import { Projects } from "@/components/sections/Projects";
 import { Articles } from "@/components/sections/Articles";
 import { Teaching } from "@/components/sections/Teaching";
+import { Certifications } from "@/components/sections/Certifications";
 import { Contact } from "@/components/sections/Contact";
 import { pt } from "@/content/pt";
 import { en } from "@/content/en";
@@ -38,6 +39,7 @@ export function PageClient() {
         <Projects content={content} />
         <Articles content={content} />
         <Teaching content={content} />
+        <Certifications content={content} />
         <Contact content={content} />
       </main>
 

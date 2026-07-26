@@ -257,6 +257,39 @@ export const en: SiteContent = {
       },
     ],
   },
+  certifications: {
+    sectionLabel: "Certifications",
+    title: "Professional certifications",
+    subtitle:
+      "Certifications that validate my work in cloud computing, artificial intelligence, and agile.",
+    items: [
+      {
+        name: "AWS Certified Cloud Practitioner",
+        issuer: "Amazon Web Services",
+        logo: "/logos/certifications/aws-cloud-logo.png",
+      },
+      {
+        name: "Azure AI Fundamentals (AI-900)",
+        issuer: "Microsoft",
+        logo: "/logos/certifications/ai-900-logo.png",
+      },
+      {
+        name: "Azure Fundamentals (AZ-900)",
+        issuer: "Microsoft",
+        logo: "/logos/certifications/az-900-logo.png",
+      },
+      {
+        name: "Certified ScrumMaster (CSM)",
+        issuer: "Scrum Alliance",
+        logo: "/logos/certifications/csm-logo.png",
+      },
+      {
+        name: "Certified Scrum Product Owner (CSPO)",
+        issuer: "Scrum Alliance",
+        logo: "/logos/certifications/cspo-logo.png",
+      },
+    ],
+  },
   contact: {
     sectionLabel: "Contact",
     title: "Let's talk?",

@@ -34,7 +34,7 @@ export function SectionHeader({
   subtitle,
   align = "left",
   id,
-  maxWidthClass = "max-w-2xl",
+  maxWidthClass = "max-w-4xl",
 }: SectionHeaderProps) {
   const alignClass = align === "center" ? "text-center mx-auto" : "";
   return (
