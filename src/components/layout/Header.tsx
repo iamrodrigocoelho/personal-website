@@ -9,10 +9,9 @@ import type { SiteContent, Lang } from "@/types/content";
 interface HeaderProps {
   content: SiteContent;
   lang: Lang;
-  onLangChange: (lang: Lang) => void;
 }
 
-export function Header({ content, lang, onLangChange }: HeaderProps) {
+export function Header({ content, lang }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -69,7 +68,7 @@ export function Header({ content, lang, onLangChange }: HeaderProps) {
 
           {/* Right cluster */}
           <div className="hidden lg:flex items-center gap-3">
-            <LanguageToggle lang={lang} onChange={onLangChange} />
+            <LanguageToggle lang={lang} />
             <Button
               href={content.links.linkedin}
               external
@@ -115,7 +114,7 @@ export function Header({ content, lang, onLangChange }: HeaderProps) {
             ))}
           </nav>
           <div className="mt-6 flex flex-col gap-3">
-            <LanguageToggle lang={lang} onChange={onLangChange} />
+            <LanguageToggle lang={lang} />
             <Button
               href={content.links.linkedin}
               external

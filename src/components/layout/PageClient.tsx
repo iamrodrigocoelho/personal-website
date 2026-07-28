@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -19,8 +18,11 @@ import type { Lang } from "@/types/content";
 
 const RECAPTCHA_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "";
 
-export function PageClient() {
-  const [lang, setLang] = useState<Lang>("pt");
+interface PageClientProps {
+  lang: Lang;
+}
+
+export function PageClient({ lang }: PageClientProps) {
   const content = lang === "pt" ? pt : en;
 
   const page = (
@@ -29,7 +31,7 @@ export function PageClient() {
         Ir para o conteúdo principal
       </a>
 
-      <Header content={content} lang={lang} onLangChange={setLang} />
+      <Header content={content} lang={lang} />
 
       <main id="main-content" tabIndex={-1}>
         <Hero content={content} />
