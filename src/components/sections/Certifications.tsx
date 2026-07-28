@@ -18,14 +18,18 @@ export function Certifications({ content }: CertificationsProps) {
         subtitle={certifications.subtitle}
       />
 
+      {/* Single row, scrolled sideways. -mx-6/px-6 lets it bleed to the
+          viewport edges while keeping the first item aligned to the grid. */}
       <ul
-        className="flex flex-wrap justify-center gap-x-8 gap-y-10 sm:gap-x-12"
+        className="-mx-6 flex snap-x snap-mandatory scroll-pl-6 gap-x-8 overflow-x-auto px-6 pb-4 [scrollbar-width:thin] sm:gap-x-12"
         role="list"
+        tabIndex={0}
+        aria-label={certifications.title}
       >
         {certifications.items.map((cert) => (
           <li
             key={cert.name}
-            className="flex w-36 flex-col items-center text-center sm:w-40"
+            className="flex w-36 flex-none snap-start flex-col items-center text-center sm:w-40"
           >
             <Image
               src={cert.logo}
