@@ -271,7 +271,7 @@ export const pt: SiteContent = {
     sectionLabel: "Certificações",
     title: "Certificações profissionais",
     subtitle:
-      "Certificações que validam minha atuação em cloud, inteligência artificial e agilidade.",
+      "Certificações que validam minha atuação em computação em nuvem, inteligência artificial e agilidade.",
     items: [
       {
         name: "AWS Certified Cloud Practitioner",
