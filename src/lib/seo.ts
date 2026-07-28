@@ -47,7 +47,9 @@ export const schemaOrg = {
   description:
     "Executivo de Produto e Tecnologia com atuação em Inteligência Artificial Generativa, transformação digital e inovação.",
   sameAs: [
-    "https://www.linkedin.com/in/SEU-LINKEDIN",
+    "https://www.linkedin.com/in/iamrodrigocoelho/",
+    "https://scholar.google.com/citations?user=QwdZe_oAAAAJ&hl=en",
+    "https://medium.com/@iamrodrigocoelho",
   ],
   worksFor: {
     "@type": "Organization",
