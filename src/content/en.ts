@@ -292,6 +292,11 @@ export const en: SiteContent = {
         issuer: "Tera",
         logo: "/logos/certifications/somostera_logo.jpeg",
       },
+      {
+        name: "Innovation Leadership Program",
+        issuer: "StartSe",
+        logo: "/logos/certifications/startse-logo.jpeg",
+      },
     ],
   },
   contact: {
