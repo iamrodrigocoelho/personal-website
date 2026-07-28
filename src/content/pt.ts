@@ -287,7 +287,7 @@ export const pt: SiteContent = {
       {
         name: "Azure Fundamentals (AZ-900)",
         issuer: "Microsoft",
-        logo: "/logos/certifications/az-900-logo.png",
+        logo: "/logos/certifications/microsoft-fundamentals-badge.svg",
       },
       {
         name: "Certified ScrumMaster (CSM)",
