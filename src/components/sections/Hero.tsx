@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { LinkedInIcon } from "@/components/ui/Icons";
 import { Button } from "@/components/ui/Button";
-import { HeroMockupCard } from "@/components/mockups/HeroMockupCard";
 import type { SiteContent } from "@/types/content";
 
 interface HeroProps {
@@ -69,8 +69,18 @@ export function Hero({ content }: HeroProps) {
           </div>
 
           {/* Right column — 5/12 */}
-          <div className="hidden lg:block lg:col-span-5 order-first lg:order-last">
-            <HeroMockupCard />
+          <div className="lg:col-span-5 order-first lg:order-last">
+            <div className="relative mx-auto max-w-[260px] overflow-hidden rounded-2xl border border-[#e5e7eb] bg-[#f8f9fa] shadow-[0_2px_16px_rgba(0,0,0,0.07),0_1px_2px_rgba(0,0,0,0.04)] sm:max-w-[320px] lg:max-w-none">
+              <Image
+                src="/logos/rodrigo-coelho-perfil.webp"
+                alt="Rodrigo Coelho"
+                width={1024}
+                height={1045}
+                priority
+                sizes="(max-width: 640px) 260px, (max-width: 1024px) 320px, 420px"
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>
