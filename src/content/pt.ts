@@ -16,10 +16,9 @@ export const pt: SiteContent = {
     langToggle: "EN",
   },
   hero: {
-    eyebrow: "Produto • Tecnologia • IA Generativa",
-    headline: "Produto, Tecnologia e IA Generativa para transformar negócios digitais.",
+    sectionLabel: "Sobre",
     subheadline:
-      "Sou executivo de Produto e Tecnologia, com experiência em varejo, e-commerce, operações digitais, inovação, sustentabilidade e aplicações práticas de Inteligência Artificial Generativa.",
+      "Rodrigo Coelho é Head de Produto e Tecnologia, com mais de 15 anos de experiência em e-commerce, produtos digitais, engenharia de software e transformação digital. Atua na integração entre canais físicos e digitais e na aplicação de inteligência artificial generativa ao varejo.",
     ctaPrimary: "Conhecer meus projetos",
     ctaSecondary: "Conectar no LinkedIn",
   },

@@ -6,8 +6,7 @@ export interface NavLink {
 }
 
 export interface HeroContent {
-  eyebrow: string;
-  headline: string;
+  sectionLabel: string;
   subheadline: string;
   ctaPrimary: string;
   ctaSecondary: string;

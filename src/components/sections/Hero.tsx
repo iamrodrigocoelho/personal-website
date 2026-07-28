@@ -21,29 +21,24 @@ export function Hero({ content }: HeroProps) {
   return (
     <section
       className="pt-32 pb-24 bg-white"
-      aria-labelledby="hero-headline"
+      aria-labelledby="hero-label"
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left column — 7/12 */}
           <div className="lg:col-span-7">
-            {/* Eyebrow */}
-            <p className="inline-flex items-center text-sm font-medium text-[#6b7280] bg-[#f5f5f5] rounded-full px-4 py-1.5 mb-6 tracking-wide">
-              {hero.eyebrow}
-            </p>
-
-            {/* Headline — responsive: 32px mobile → 48px tablet → 64px desktop */}
-            <h1
-              id="hero-headline"
-              className="text-[32px] sm:text-[44px] lg:text-[58px] font-semibold leading-[1.05] tracking-[-0.02em] text-[#111111] mb-6 max-w-xl"
+            {/* Section label — same treatment as SectionHeader's label */}
+            <p
+              id="hero-label"
+              className="text-xs font-semibold uppercase tracking-[0.1em] text-[#6b7280] mb-4"
             >
-              {hero.headline}
-            </h1>
-
-            {/* Sub */}
-            <p className="text-base sm:text-lg text-[#374151] leading-relaxed mb-10 max-w-lg">
-              {hero.subheadline}
+              {hero.sectionLabel}
             </p>
+
+            {/* Page h1 — styled as body copy, not as a display heading */}
+            <h1 className="text-base sm:text-lg text-[#374151] leading-relaxed mb-10 max-w-lg">
+              {hero.subheadline}
+            </h1>
 
             {/* CTAs */}
             <div className="flex flex-wrap gap-3">

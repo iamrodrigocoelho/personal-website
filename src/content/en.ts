@@ -16,10 +16,9 @@ export const en: SiteContent = {
     langToggle: "PT",
   },
   hero: {
-    eyebrow: "Product • Technology • Generative AI",
-    headline: "Product, Technology and Generative AI to transform digital businesses.",
+    sectionLabel: "About",
     subheadline:
-      "I am a Product and Technology executive with experience in retail, e-commerce, digital operations, innovation, sustainability, and practical applications of Generative Artificial Intelligence.",
+      "Rodrigo Coelho is Head of Product and Technology, with over 15 years of experience in e-commerce, digital products, software engineering, and digital transformation. He works on integrating physical and digital channels and on applying generative artificial intelligence to retail.",
     ctaPrimary: "Explore my projects",
     ctaSecondary: "Connect on LinkedIn",
   },
