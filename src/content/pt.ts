@@ -299,6 +299,11 @@ export const pt: SiteContent = {
         issuer: "Scrum Alliance",
         logo: "/logos/certifications/cspo-logo.png",
       },
+      {
+        name: "Digital Product Leadership",
+        issuer: "Tera",
+        logo: "/logos/certifications/somostera_logo.jpeg",
+      },
     ],
   },
   contact: {
