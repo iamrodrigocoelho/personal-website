@@ -147,6 +147,13 @@ export const pt: SiteContent = {
       "Frentes de trabalho onde aplico estratégia, produto, tecnologia e IA.",
     items: [
       {
+        title: "CNPJ Neutro",
+        description:
+          "Calcule as emissões de carbono e o consumo de água associados ao uso de ferramentas de IA generativa como ChatGPT, Claude, Gemini e Copilot.",
+        tags: ["LLM", "Pegada de Carbono", "ESG"],
+        logo: "/logos/projects/cnpj-neutro-logo-black.png",
+      },
+      {
         title: "Produto e Tecnologia no Varejo",
         description:
           "Projetos digitais, omnichannel, plataformas, site, app, PDV e jornada do cliente em ambiente farmacêutico de grande escala.",

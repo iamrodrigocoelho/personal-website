@@ -57,6 +57,7 @@ export interface ProjectItem {
   tags: string[];
   ctaLabel?: string;
   ctaHref?: string;
+  logo?: string;
 }
 
 export interface ProjectsContent {

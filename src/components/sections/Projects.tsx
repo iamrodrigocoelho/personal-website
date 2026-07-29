@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { Section, SectionHeader } from "@/components/layout/Section";
 import { Card } from "@/components/ui/Card";
@@ -25,7 +26,26 @@ export function Projects({ content }: ProjectsProps) {
         {projects.items.map((item) => (
           <Card key={item.title} variant="soft" padding="lg" className="flex flex-col">
             <div className="flex-1">
-              <h3 className="font-semibold text-[#111111] text-base mb-3 leading-snug">
+              {item.logo && (
+                // Decorative: the heading below carries the name for
+                // assistive tech, so don't announce it twice.
+                <Image
+                  src={item.logo}
+                  alt=""
+                  width={425}
+                  height={272}
+                  className="mb-3 h-16 w-auto object-contain object-left"
+                />
+              )}
+              {/* The wordmark already shows the name, so hide the heading
+                  visually but keep it in the outline and for screen readers. */}
+              <h3
+                className={
+                  item.logo
+                    ? "sr-only"
+                    : "font-semibold text-[#111111] text-base mb-3 leading-snug"
+                }
+              >
                 {item.title}
               </h3>
               <p className="text-sm text-[#6b7280] leading-relaxed mb-4">

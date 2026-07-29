@@ -137,6 +137,13 @@ export const en: SiteContent = {
       "Work fronts where I apply strategy, product, technology, and AI.",
     items: [
       {
+        title: "CNPJ Neutro",
+        description:
+          "Calculate the carbon emissions and water consumption associated with using generative AI tools such as ChatGPT, Claude, Gemini, and Copilot.",
+        tags: ["LLM", "Carbon Footprint", "ESG"],
+        logo: "/logos/projects/cnpj-neutro-logo-black.png",
+      },
+      {
         title: "Product & Technology in Retail",
         description:
           "Digital projects, omnichannel, platforms, website, app, POS, and customer journey at a large-scale pharmacy chain.",
