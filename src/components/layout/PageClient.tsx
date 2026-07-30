@@ -4,8 +4,10 @@ import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
-import { About } from "@/components/sections/About";
-import { Areas } from "@/components/sections/Areas";
+// Seções "Trajetória profissional" (About) e "Áreas de atuação" (Areas)
+// desativadas do site — reative aqui e no <main> abaixo para voltar a exibi-las.
+// import { About } from "@/components/sections/About";
+// import { Areas } from "@/components/sections/Areas";
 import { Experience } from "@/components/sections/Experience";
 import { Projects } from "@/components/sections/Projects";
 import { Articles } from "@/components/sections/Articles";
@@ -35,8 +37,8 @@ export function PageClient({ lang }: PageClientProps) {
 
       <main id="main-content" tabIndex={-1}>
         <Hero content={content} />
-        <About content={content} />
-        <Areas content={content} />
+        {/* <About content={content} /> */}
+        {/* <Areas content={content} /> */}
         <Experience content={content} />
         <Projects content={content} />
         <Articles content={content} />
