@@ -5,8 +5,9 @@ export const en: SiteContent = {
   nav: {
     logo: "Rodrigo Coelho",
     links: [
-      { label: "About", href: "#sobre" },
-      { label: "Expertise", href: "#atuacao" },
+      // Âncoras das seções desativadas em PageClient.
+      // { label: "About", href: "#sobre" },
+      // { label: "Expertise", href: "#atuacao" },
       { label: "Experience", href: "#experiencia" },
       { label: "Projects", href: "#projetos" },
       { label: "Articles", href: "#artigos" },
@@ -144,6 +145,13 @@ export const en: SiteContent = {
         logo: "/logos/projects/cnpj-neutro-logo-black.png",
       },
       {
+        title: "Refauna SLM",
+        description:
+          "Open-weights SLM specialized in refaunation, biodiversity conservation, and the restoration of ecological interactions, trained on Refauna data.",
+        tags: ["SLM", "Fine Tuning", "RAG"],
+        logo: "/logos/projects/huggingface-logo.svg",
+      },
+      {
         title: "Product & Technology in Retail",
         description:
           "Digital projects, omnichannel, platforms, website, app, POS, and customer journey at a large-scale pharmacy chain.",
@@ -168,12 +176,6 @@ export const en: SiteContent = {
         tags: ["AI", "Sustainability", "ESG", "Editorial"],
         ctaLabel: "Read article on ESG Inside",
         ctaHref: "https://esginside.com.br/2026/04/24/o-apetite-energetico-dos-llms-e-a-vantagem-competitiva-da-matriz-energetica-brasileira/",
-      },
-      {
-        title: "Executive Education",
-        description:
-          "Classes, lectures, MBAs, mentoring, and content on innovation, sustainability, and digital transformation for leaders and organizations.",
-        tags: ["Education", "MBA", "Speaking", "Mentoring"],
       },
     ],
     ctaLabel: "Connect on LinkedIn",
@@ -336,8 +338,9 @@ export const en: SiteContent = {
     navLabel: "Navigation",
     contactLabel: "Contact",
     links: [
-      { label: "About", href: "#sobre" },
-      { label: "Expertise", href: "#atuacao" },
+      // Âncoras das seções desativadas em PageClient.
+      // { label: "About", href: "#sobre" },
+      // { label: "Expertise", href: "#atuacao" },
       { label: "Experience", href: "#experiencia" },
       { label: "Projects", href: "#projetos" },
       { label: "Articles", href: "#artigos" },
