@@ -11,6 +11,7 @@ export const en: SiteContent = {
       { label: "Experience", href: "#experiencia" },
       { label: "Projects", href: "#projetos" },
       { label: "Articles", href: "#artigos" },
+      { label: "Blog", href: "/en/blog/" },
       { label: "Contact", href: "#contato" },
     ],
     ctaLabel: "Connect on LinkedIn",
@@ -344,6 +345,7 @@ export const en: SiteContent = {
       { label: "Experience", href: "#experiencia" },
       { label: "Projects", href: "#projetos" },
       { label: "Articles", href: "#artigos" },
+      { label: "Blog", href: "/en/blog/" },
       { label: "Contact", href: "#contato" },
     ],
     contactLinks: [

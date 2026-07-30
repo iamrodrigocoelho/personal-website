@@ -4,6 +4,11 @@ import { LinkedInIcon } from "@/components/ui/Icons";
 
 interface FooterProps {
   content: SiteContent;
+  /**
+   * Page the section anchors belong to, e.g. "/pt/". Same role as in Header:
+   * outside the landing page the anchors need an absolute target.
+   */
+  sectionBase?: string;
 }
 
 const contactIcons: Record<string, React.ReactNode> = {
@@ -15,8 +20,11 @@ const contactIcons: Record<string, React.ReactNode> = {
   Resume: <FileText size={14} />,
 };
 
-export function Footer({ content }: FooterProps) {
+export function Footer({ content, sectionBase }: FooterProps) {
   const { footer } = content;
+
+  const resolveHref = (href: string) =>
+    href.startsWith("#") && sectionBase ? `${sectionBase}${href}` : href;
 
   return (
     <footer className="bg-[#101010] text-[#a1a1aa]" role="contentinfo">
@@ -41,7 +49,7 @@ export function Footer({ content }: FooterProps) {
               {footer.links.map((link) => (
                 <li key={link.href}>
                   <a
-                    href={link.href}
+                    href={resolveHref(link.href)}
                     className="text-sm text-[#a1a1aa] hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
                   >
                     {link.label}

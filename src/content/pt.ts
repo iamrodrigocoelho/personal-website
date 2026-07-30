@@ -11,6 +11,8 @@ export const pt: SiteContent = {
       { label: "Experiência", href: "#experiencia" },
       { label: "Projetos", href: "#projetos" },
       { label: "Artigos", href: "#artigos" },
+      // Rota própria, não âncora: o Header trata os dois casos.
+      { label: "Blog", href: "/pt/blog/" },
       { label: "Contato", href: "#contato" },
     ],
     ctaLabel: "Conectar no LinkedIn",
@@ -357,6 +359,7 @@ export const pt: SiteContent = {
       { label: "Experiência", href: "#experiencia" },
       { label: "Projetos", href: "#projetos" },
       { label: "Artigos", href: "#artigos" },
+      { label: "Blog", href: "/pt/blog/" },
       { label: "Contato", href: "#contato" },
     ],
     contactLinks: [

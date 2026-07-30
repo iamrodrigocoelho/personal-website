@@ -22,18 +22,28 @@ export function getContent(lang: Lang): SiteContent {
   return CONTENT[lang];
 }
 
-export function langUrl(lang: Lang): string {
-  return `${SITE_URL}/${lang}/`;
+/**
+ * Locale-prefixed path, e.g. langHref("pt", "blog/my-post") → "/pt/blog/my-post/".
+ * Always trailing-slashed to match `trailingSlash: true` in next.config.
+ */
+export function langHref(lang: Lang, path = ""): string {
+  const segment = path.replace(/^\/+|\/+$/g, "");
+  return segment ? `/${lang}/${segment}/` : `/${lang}/`;
+}
+
+export function langUrl(lang: Lang, path = ""): string {
+  return `${SITE_URL}${langHref(lang, path)}`;
 }
 
 /**
  * hreflang map for every locale plus x-default, which tells search engines
  * which version to serve when no language matches. Portuguese is the default.
+ * Pass a path to map a nested route (the blog) instead of the home page.
  */
-export function alternateLanguages(): Record<string, string> {
-  const languages: Record<string, string> = { "x-default": langUrl("pt") };
+export function alternateLanguages(path = ""): Record<string, string> {
+  const languages: Record<string, string> = { "x-default": langUrl("pt", path) };
   for (const lang of LANGS) {
-    languages[HTML_LANG[lang]] = langUrl(lang);
+    languages[HTML_LANG[lang]] = langUrl(lang, path);
   }
   return languages;
 }
