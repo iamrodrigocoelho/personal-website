@@ -22,13 +22,9 @@ import { LANGS, isLang } from "@/lib/i18n";
 
 const SLUG = "tapirus-open-4b-qwen3-fine-tuning-rag";
 
-/**
- * Public model on Hugging Face. Fill both in to light up the download CTA and
- * the model id inside the inference snippet — while empty, the post renders
- * without any broken link.
- */
-const HF_URL = "";
-const HF_MODEL_ID = "";
+/** Public model on Hugging Face — drives the CTA and the inference snippet. */
+const HF_MODEL_ID = "Refauna/tapirus-open-4b";
+const HF_URL = `https://huggingface.co/${HF_MODEL_ID}`;
 
 const BASE_MODEL = "Qwen/Qwen3-4B-Instruct-2507";
 
@@ -61,8 +57,6 @@ export default async function TapirusOpen4bPost({
 }
 
 function HuggingFaceCta({ label }: { label: string }) {
-  if (!HF_URL) return null;
-
   return (
     <div>
       <Button href={HF_URL} external variant="primary" size="lg">
@@ -80,7 +74,7 @@ const TRAINING_SAMPLE = `{"messages": [
 
 const INFERENCE_SNIPPET = `from transformers import AutoModelForCausalLM, AutoTokenizer
 
-MODEL_ID = "${HF_MODEL_ID || "<usuario>/<modelo>"}"
+MODEL_ID = "${HF_MODEL_ID}"
 
 tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
 model = AutoModelForCausalLM.from_pretrained(MODEL_ID, device_map="auto")
