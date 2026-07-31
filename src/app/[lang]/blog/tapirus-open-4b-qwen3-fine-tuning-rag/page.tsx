@@ -20,7 +20,7 @@ import { Button } from "@/components/ui/Button";
 import { buildPostMetadata, requirePost } from "@/lib/blog";
 import { LANGS, isLang } from "@/lib/i18n";
 
-const SLUG = "refauna-slm-qwen3-fine-tuning-rag";
+const SLUG = "tapirus-open-4b-qwen3-fine-tuning-rag";
 
 /**
  * Public model on Hugging Face. Fill both in to light up the download CTA and
@@ -40,16 +40,16 @@ export function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: PageProps<"/[lang]/blog/refauna-slm-qwen3-fine-tuning-rag">): Promise<Metadata> {
+}: PageProps<"/[lang]/blog/tapirus-open-4b-qwen3-fine-tuning-rag">): Promise<Metadata> {
   const { lang } = await params;
   if (!isLang(lang)) notFound();
 
   return buildPostMetadata(post, lang);
 }
 
-export default async function RefaunaSlmPost({
+export default async function TapirusOpen4bPost({
   params,
-}: PageProps<"/[lang]/blog/refauna-slm-qwen3-fine-tuning-rag">) {
+}: PageProps<"/[lang]/blog/tapirus-open-4b-qwen3-fine-tuning-rag">) {
   const { lang } = await params;
   if (!isLang(lang)) notFound();
 
@@ -110,7 +110,7 @@ function BodyPt() {
       </Lead>
 
       <P>
-        O resultado é o <strong>Refauna SLM</strong>: um modelo pequeno de
+        O resultado é o <strong>Tapirus Open 4B</strong>: um modelo pequeno de
         linguagem, com pesos abertos, especializado em refaunação, conservação da
         biodiversidade e restauração de interações ecológicas. A base é o{" "}
         <InlineCode>{BASE_MODEL}</InlineCode>, sobre o qual apliquei fine tuning
@@ -337,7 +337,7 @@ function BodyPt() {
       </OL>
 
       <P>
-        O Refauna SLM continua em evolução. Se você trabalha com restauração
+        O Tapirus Open 4B continua em evolução. Se você trabalha com restauração
         ecológica, com modelos pequenos ou com os dois, tenho interesse genuíno
         em ouvir críticas — especialmente as técnicas. Fico à disposição no{" "}
         <ProseLink href="https://www.linkedin.com/in/iamrodrigocoelho/" external>
@@ -361,7 +361,7 @@ function BodyEn() {
       </Lead>
 
       <P>
-        The result is <strong>Refauna SLM</strong>: an open-weights small
+        The result is <strong>Tapirus Open 4B</strong>: an open-weights small
         language model specialized in refaunation, biodiversity conservation and
         the restoration of ecological interactions. It is built on{" "}
         <InlineCode>{BASE_MODEL}</InlineCode>, which I fine-tuned and then paired
@@ -587,7 +587,8 @@ function BodyEn() {
       </OL>
 
       <P>
-        Refauna SLM is still evolving. If you work with ecological restoration,
+        Tapirus Open 4B is still evolving. If you work with ecological
+        restoration,
         with small models, or with both, I&rsquo;m genuinely interested in
         criticism — especially the technical kind. I&rsquo;m around on{" "}
         <ProseLink href="https://www.linkedin.com/in/iamrodrigocoelho/" external>

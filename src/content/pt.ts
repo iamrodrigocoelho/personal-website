@@ -157,7 +157,7 @@ export const pt: SiteContent = {
         logo: "/logos/projects/cnpj-neutro-logo-black.png",
       },
       {
-        title: "Refauna SLM",
+        title: "Tapirus Open 4B",
         description:
           "SLM open weights especializado em refaunação, conservação da biodiversidade e restauração de interações ecológicas, treinado com dados do Refauna.",
         tags: ["SLM", "Fine Tuning", "RAG"],

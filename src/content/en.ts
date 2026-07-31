@@ -146,7 +146,7 @@ export const en: SiteContent = {
         logo: "/logos/projects/cnpj-neutro-logo-black.png",
       },
       {
-        title: "Refauna SLM",
+        title: "Tapirus Open 4B",
         description:
           "Open-weights SLM specialized in refaunation, biodiversity conservation, and the restoration of ecological interactions, trained on Refauna data.",
         tags: ["SLM", "Fine Tuning", "RAG"],
