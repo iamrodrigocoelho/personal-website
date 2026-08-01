@@ -23,6 +23,15 @@ const typeColorMap: Record<string, string> = {
 
 type BadgeVariant = "default" | "orange" | "pink" | "violet" | "emerald" | "outline";
 
+// Alturas por logo. O Google Scholar (1,76:1) em h-16 é a referência: 64px de
+// altura por ~113px de largura. Marcas quadradas ficam no padrão h-16; wordmarks
+// horizontais usam h-8 para chegar na mesma largura em vez de estourá-la.
+const LOGO_HEIGHT: Record<string, string> = {
+  "/logos/logo-isto-e-dinheiro.svg": "h-8", // 3,8:1 → ~122px
+  "/logos/spotify_logo.png": "h-8", // 3,3:1 → ~107px
+  "/logos/esg-inside.png": "h-10", // 3,0:1 → ~121px
+};
+
 export function Articles({ content }: ArticlesProps) {
   const { articles, links } = content;
 
@@ -52,7 +61,7 @@ export function Articles({ content }: ArticlesProps) {
                 alt=""
                 width={425}
                 height={272}
-                className="mb-3 h-16 w-auto object-contain object-left"
+                className={`mb-3 w-auto object-contain object-left ${LOGO_HEIGHT[item.logo] ?? "h-16"}`}
               />
             )}
             <div className="flex items-start justify-between gap-4 mb-4">
@@ -121,7 +130,7 @@ export function Articles({ content }: ArticlesProps) {
                   alt=""
                   width={425}
                   height={272}
-                  className="mb-3 h-16 w-auto object-contain object-left"
+                  className={`mb-3 w-auto object-contain object-left ${LOGO_HEIGHT[article.logo] ?? "h-16"}`}
                 />
               )}
               {(article.type || article.date) && (

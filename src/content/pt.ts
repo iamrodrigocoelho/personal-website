@@ -199,12 +199,10 @@ export const pt: SiteContent = {
     items: [
       {
         title: "O apetite energético dos LLMs e a vantagem competitiva da matriz brasileira",
-        description:
-          "Análise sobre o crescimento do consumo energético dos modelos de linguagem, o papel dos data centers e a oportunidade estratégica da matriz energética brasileira no avanço da Inteligência Artificial.",
-        type: "Revista",
-        date: "2026",
+        tags: ["LLM","IA","Matriz energética"],
+        logo: "/logos/esg-inside.png",
         href: "https://esginside.com.br/2026/04/24/o-apetite-energetico-dos-llms-e-a-vantagem-competitiva-da-matriz-energetica-brasileira/",
-        featured: true,
+        featured: false,
       },
       {
         title: "Inovações Tecnológicas, Inteligência Artificial (IA) e Blockchain: Administração Pública e os desafios éticos na era digital",
@@ -214,20 +212,32 @@ export const pt: SiteContent = {
         featured: false,
       },
       {
+        title: "Plano de Negócios e suas contribuições para micro e pequenos empreendedores",
+        tags: ["SMB", "Plano de Negócios", "Empreendedorismo","Inovação"],
+        logo: "/logos/google-scholar-seeklogo.png",
+        href: "https://doi.org/10.54899/dcs.v22i83.3544",
+        featured: false,
+      },
+      {
         title: "Americanas e Selo Procel se unem para sensibilizar clientes sobre sustentabilidade de produtos",
-        description:
-          "Reflexões sobre o papel da tecnologia na agenda ESG e como empresas podem criar vantagem competitiva com inovação sustentável.",
-        type: "Revista",
-        date: "2022",
+        tags: ["ESG", "Inovação Aberta"],
+        logo: "/logos/logo-isto-e-dinheiro.svg",
         href: "https://istoedinheiro.com.br/americanas-s-a-e-selo-procel-se-unem-para-sensibilizar-clientes-sobre-sustentabilidade-de-produtos",
+        featured: false,
       },
       {
         title: "O perfil do cliente no físico e no digital",
-        description:
-          "Como será o consumidor do futuro? A multicanalidade se torna cada vez mais forte: o cliente que começa a jornada de compra no físico e termina no digital e vice-versa.",
-        type: "Spotify",
-        date: "2023",
+        tags: ["Varejo", "Omnichannel", "Tecnologia"],
+        logo: "/logos/spotify_logo.png",
         href: "https://open.spotify.com/episode/5pGWdHmqMNAEyHsOWsAzGt?si=FPR151vERTWOUI5NWhULXg",
+        featured: false,
+      },
+      {
+        title: "Analista de sistemas aposta na fotografia de aves como um resgate dos sentidos",
+        tags: ["Fotografia de natureza","Hobby","Avifauna"],
+        logo: "/logos/g1_logo.png",
+        href: "https://g1.globo.com/sp/campinas-regiao/terra-da-gente/noticia/2019/12/17/analista-de-sistemas-aposta-na-fotografia-de-aves-como-um-resgate-dos-sentidos.ghtml",
+        featured: false,
       },
     ],
     ctaLabel: "Ver no LinkedIn",
