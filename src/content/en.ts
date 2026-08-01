@@ -197,8 +197,11 @@ export const en: SiteContent = {
         featured: true,
       },
       {
-        title: "Generative AI in transforming digital operations",
+        title: "Technological Innovations, Artificial Intelligence (AI) and Blockchain: Public Administration and the ethical challenges of the digital era",
+        tags: ["AI", "Blockchain", "Innovation"],
         logo: "/logos/google-scholar-seeklogo.png",
+        href: "https://doi.org/10.54899/dcs.v22i83.3544",
+        featured: true,
       },
       {
         title: "Sustainability and technology: strategic convergences",
