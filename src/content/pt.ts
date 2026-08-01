@@ -193,9 +193,9 @@ export const pt: SiteContent = {
     ctaLabel: "Conectar no LinkedIn",
   },
   articles: {
-    sectionLabel: "Pesquisa",
-    title: "Artigos acadêmicos, publicações e citações",
-    subtitle: "Produção acadêmica que conecta pesquisa, tecnologia, inovação e aplicação prática.",
+    sectionLabel: "Pesquisa e conhecimento",
+    title: "Produção acadêmica, publicações, palestras, entrevistas e docência.",
+    subtitle: "Produção acadêmica, publicações, palestras, entrevistas e docência.",
     items: [
       {
         title: "O apetite energético dos LLMs e a vantagem competitiva da matriz brasileira",
@@ -215,7 +215,7 @@ export const pt: SiteContent = {
         title: "Plano de Negócios e suas contribuições para micro e pequenos empreendedores",
         tags: ["SMB", "Plano de Negócios", "Empreendedorismo","Inovação"],
         logo: "/logos/google-scholar-seeklogo.png",
-        href: "https://doi.org/10.54899/dcs.v22i83.3544",
+        href: "https://doi.org/10.9790/487X-2610014347",
         featured: false,
       },
       {
@@ -245,46 +245,35 @@ export const pt: SiteContent = {
     ctaMediumLabel: "Ver no Medium",
   },
   teaching: {
-    sectionLabel: "Conhecimento",
-    title: "Palestras, entrevistas e docência",
+    sectionLabel: "Formação",
+    title: "Formação acadêmica",
     subtitle:
-      "Compartilho conhecimentos e experiências por meio de palestras, entrevistas e aulas.",
-    teaching: [
+      "Formação multidisciplinar que conecta tecnologia, negócios, sustentabilidade e inovação.",
+    items: [
       {
-        category: "Aulas e MBAs",
-        items: [
-          "IA para Negócios Sustentáveis",
-          "Tecnologia e Sustentabilidade",
-          "Inovação e Transformação Digital",
-          "Tecnologia aplicada a negócios",
-        ],
+        name: "Análise de Desenvolvimento de Sistemas",
+        issuer: "Estácio de Sá",
+        logo: "/logos/education/estacio-logo.png",
       },
       {
-        category: "Palestras e eventos",
-        items: [
-          "IA Generativa para executivos",
-          "Transformação digital no varejo",
-          "Produto e Tecnologia em escala",
-          "Sustentabilidade, ESG e competitividade",
-          "Inovação aplicada a negócios",
-        ],
-      },
-    ],
-    education: [
-      {
-        degree: "Mestrado em Engenharia Ambiental",
-        institution: "PUC-Rio",
-        year: "2024",
+        name: "Pós-graduação Inteligência Artificial e Computacional",
+        issuer: "UFV",
+        logo: "/logos/education/ufv-logo.png",
       },
       {
-        degree: "Pós-graduação em Desenvolvimento Full Stack",
-        institution: "PUC-Rio",
-        year: "2022",
+        name: "Pós-graduação Desenvolvimento Full Stack",
+        issuer: "PUC-Rio",
+        logo: "/logos/education/puc-rio-logo.png",
       },
       {
-        degree: "Pós-graduação em Inteligência Artificial e Computacional",
-        institution: "Universidade Federal de Viçosa",
-        year: "2025",
+        name: "Post-MBA",
+        issuer: "COPPEAD UFRJ",
+        logo: "/logos/education/coppead-logo.png",
+      },
+      {
+        name: "Mestrado",
+        issuer: "PUC-Rio",
+        logo: "/logos/education/puc-rio-logo.png",
       },
     ],
   },

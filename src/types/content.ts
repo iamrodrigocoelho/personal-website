@@ -89,29 +89,18 @@ export interface ArticlesContent {
   ctaMediumLabel: string;
 }
 
-export interface TeachingItem {
-  category: string;
-  items: string[];
-}
-
-export interface EducationItem {
-  degree: string;
-  institution: string;
-  year?: string;
-}
-
-export interface TeachingContent {
-  sectionLabel: string;
-  title: string;
-  subtitle: string;
-  teaching: TeachingItem[];
-  education: EducationItem[];
-}
-
 export interface CertificationItem {
   name: string;
   issuer: string;
   logo: string;
+}
+
+// Mesma forma de CertificationsContent: uma faixa de logos com legenda.
+export interface TeachingContent {
+  sectionLabel: string;
+  title: string;
+  subtitle: string;
+  items: CertificationItem[];
 }
 
 export interface CertificationsContent {

@@ -182,10 +182,9 @@ export const en: SiteContent = {
     ctaLabel: "Connect on LinkedIn",
   },
   articles: {
-    sectionLabel: "Articles",
-    title: "Articles and publications",
-    subtitle:
-      "Analyses, essays, and academic publications on technology, AI, and sustainability.",
+    sectionLabel: "Research & knowledge",
+    title: "Academic output, publications, talks, interviews, and teaching.",
+    subtitle: "Academic output, publications, talks, interviews, and teaching.",
     items: [
       {
         title: "The energy appetite of LLMs and Brazil's competitive advantage",
@@ -205,7 +204,7 @@ export const en: SiteContent = {
         title: "Business plans and their contributions to micro and small entrepreneurs",
         tags: ["SMB", "Business Plan", "Entrepreneurship", "Innovation"],
         logo: "/logos/google-scholar-seeklogo.png",
-        href: "https://doi.org/10.54899/dcs.v22i83.3544",
+        href: "https://doi.org/10.9790/487X-2610014347",
         featured: false,
       },
       {
@@ -235,46 +234,35 @@ export const en: SiteContent = {
     ctaMediumLabel: "View on Medium",
   },
   teaching: {
-    sectionLabel: "Teaching & Education",
-    title: "Executive education and background",
+    sectionLabel: "Education",
+    title: "Academic background",
     subtitle:
-      "Acting as guest professor, speaker, and professional with multidisciplinary training.",
-    teaching: [
+      "Multidisciplinary background connecting technology, business, sustainability, and innovation.",
+    items: [
       {
-        category: "Classes & MBAs",
-        items: [
-          "Sustainable Business",
-          "Sustainability & ESG",
-          "Innovation and Digital Transformation",
-          "Technology applied to business",
-        ],
+        name: "Systems Analysis and Development",
+        issuer: "Estácio de Sá",
+        logo: "/logos/education/estacio-logo.png",
       },
       {
-        category: "Speaking & Events",
-        items: [
-          "Generative AI for executives",
-          "Digital transformation in retail",
-          "Product and Technology at scale",
-          "Sustainability, ESG and competitiveness",
-          "Innovation applied to business",
-        ],
-      },
-    ],
-    education: [
-      {
-        degree: "Master's in Environmental Engineering",
-        institution: "University",
-        year: "2022",
+        name: "Postgraduate in Artificial and Computational Intelligence",
+        issuer: "UFV",
+        logo: "/logos/education/ufv-logo.png",
       },
       {
-        degree: "Postgraduate in Full Stack Development",
-        institution: "Higher education institution",
-        year: "2020",
+        name: "Postgraduate in Full Stack Development",
+        issuer: "PUC-Rio",
+        logo: "/logos/education/puc-rio-logo.png",
       },
       {
-        degree: "Postgraduate in Artificial and Computational Intelligence",
-        institution: "Higher education institution",
-        year: "2023",
+        name: "Post-MBA",
+        issuer: "COPPEAD UFRJ",
+        logo: "/logos/education/coppead-logo.png",
+      },
+      {
+        name: "Master's Degree",
+        issuer: "PUC-Rio",
+        logo: "/logos/education/puc-rio-logo.png",
       },
     ],
   },
