@@ -207,11 +207,11 @@ export const pt: SiteContent = {
         featured: true,
       },
       {
-        title: "IA Generativa na transformação de operações digitais",
-        description:
-          "Como aplicações práticas de LLMs estão redefinindo produtividade, atendimento e desenvolvimento de software em organizações.",
-        type: "Artigo",
-        date: "2024",
+        title: "Inovações Tecnológicas, Inteligência Artificial (IA) e Blockchain: Administração Pública e os desafios éticos na era digital",
+        tags: ["IA", "Blockchain", "Inovação"],
+        logo: "/logos/google-scholar-seeklogo.png",
+        href: "https://doi.org/10.54899/dcs.v22i83.3544",
+        featured: false,
       },
       {
         title: "Americanas e Selo Procel se unem para sensibilizar clientes sobre sustentabilidade de produtos",

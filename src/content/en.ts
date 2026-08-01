@@ -198,10 +198,7 @@ export const en: SiteContent = {
       },
       {
         title: "Generative AI in transforming digital operations",
-        description:
-          "How practical applications of LLMs are redefining productivity, customer service, and software development in organizations.",
-        type: "Article",
-        date: "2024",
+        logo: "/logos/google-scholar-seeklogo.png",
       },
       {
         title: "Sustainability and technology: strategic convergences",

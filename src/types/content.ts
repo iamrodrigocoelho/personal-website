@@ -70,11 +70,13 @@ export interface ProjectsContent {
 
 export interface ArticleItem {
   title: string;
-  description: string;
-  type: string;
+  description?: string;
+  type?: string;
   date?: string;
   href?: string;
   featured?: boolean;
+  logo?: string;
+  tags?: string[];
 }
 
 export interface ArticlesContent {
