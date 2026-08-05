@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Inter, Orbitron } from "next/font/google";
 import { Analytics } from "@/components/ui/Analytics";
-import { schemaOrg } from "@/lib/seo";
+import { jsonLdString, schemaOrg } from "@/lib/seo";
 import {
   HTML_LANG,
   LANGS,
@@ -78,7 +78,7 @@ export default async function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
+          dangerouslySetInnerHTML={{ __html: jsonLdString(schemaOrg) }}
         />
       </head>
       <body className="min-h-full flex flex-col bg-white text-[#374151]">

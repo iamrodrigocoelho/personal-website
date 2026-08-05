@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
 import type { SeoContent } from "@/types/content";
 
+/**
+ * Serialize a schema.org object for a JSON-LD <script> tag. JSON.stringify
+ * leaves "<" as-is, so a "</script>" inside any field would close the tag and
+ * let the rest run as markup; escaping it keeps the payload inert.
+ */
+export function jsonLdString(data: unknown): string {
+  return JSON.stringify(data).replace(/</g, "\\u003c");
+}
+
 export function buildMetadata(seo: SeoContent): Metadata {
   return {
     metadataBase: new URL(seo.url),

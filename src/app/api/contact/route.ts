@@ -71,6 +71,18 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "validation" }, { status: 400 });
   }
 
+  // Caps generous enough for any legitimate submission; anything bigger is
+  // abuse of the mailbox and of the Resend quota.
+  if (
+    name.length > 200 ||
+    email.length > 254 ||
+    company.length > 200 ||
+    subject.length > 300 ||
+    message.length > 5000
+  ) {
+    return NextResponse.json({ ok: false, error: "validation" }, { status: 400 });
+  }
+
   if (process.env.RECAPTCHA_SECRET_KEY) {
     if (!body.recaptchaToken) {
       return NextResponse.json({ ok: false, error: "recaptcha" }, { status: 400 });
@@ -117,7 +129,9 @@ export async function POST(request: Request) {
         from: fromEmail,
         to: [toEmail],
         reply_to: email,
-        subject: `[Site] ${subject || "Contato via site"}`,
+        // Newlines stripped as defense in depth against email header
+        // injection, even though Resend receives this as JSON.
+        subject: `[Site] ${subject.replace(/[\r\n]+/g, " ") || "Contato via site"}`,
         text,
       }),
     });

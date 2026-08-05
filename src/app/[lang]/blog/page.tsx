@@ -18,6 +18,7 @@ import {
   isLang,
   langUrl,
 } from "@/lib/i18n";
+import { jsonLdString } from "@/lib/seo";
 import type { Lang } from "@/types/content";
 
 export function generateStaticParams() {
@@ -75,7 +76,7 @@ export default async function BlogIndexPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(blogListJsonLd(lang)),
+          __html: jsonLdString(blogListJsonLd(lang)),
         }}
       />
 

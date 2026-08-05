@@ -67,7 +67,8 @@ export async function POST(request: Request) {
   const email = body.email?.trim() ?? "";
   const lang = body.lang === "en" ? "en" : "pt";
 
-  if (!email || !isValidEmail(email)) {
+  // 254 is the RFC 5321 ceiling for a full address.
+  if (!email || email.length > 254 || !isValidEmail(email)) {
     return NextResponse.json({ ok: false, error: "validation" }, { status: 400 });
   }
 

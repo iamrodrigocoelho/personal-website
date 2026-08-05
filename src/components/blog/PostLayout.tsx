@@ -15,6 +15,7 @@ import {
   readingTimeLabel,
 } from "@/lib/blog";
 import { LANGS, getContent, langHref } from "@/lib/i18n";
+import { jsonLdString } from "@/lib/seo";
 import type { BlogPostMetadata } from "@/types/blog";
 import type { Lang } from "@/types/content";
 
@@ -45,7 +46,7 @@ export function PostLayout({ post, lang, children }: PostLayoutProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(postJsonLd(post, lang)),
+          __html: jsonLdString(postJsonLd(post, lang)),
         }}
       />
 
