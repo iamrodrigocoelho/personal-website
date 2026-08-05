@@ -22,9 +22,23 @@ export function Projects({ content }: ProjectsProps) {
         subtitle={projects.subtitle}
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+      {/* Carousel below md, plain grid from md up. The -mx-6/px-6 pair lets the
+          row bleed to the viewport edges while the first card stays on the grid.
+          tabIndex makes the scroller reachable: most cards have no CTA inside,
+          so without it there is nothing here for a keyboard to land on. */}
+      <div
+        className="-mx-6 mb-10 flex snap-x snap-mandatory scroll-pl-6 gap-5 overflow-x-auto px-6 pb-4 [scrollbar-width:thin] md:mx-0 md:grid md:snap-none md:grid-cols-2 md:overflow-x-visible md:px-0 md:pb-0 lg:grid-cols-3"
+        role="group"
+        tabIndex={0}
+        aria-label={projects.title}
+      >
         {projects.items.map((item) => (
-          <Card key={item.title} variant="soft" padding="lg" className="flex flex-col">
+          <Card
+            key={item.title}
+            variant="soft"
+            padding="lg"
+            className="flex w-[85%] flex-none snap-start flex-col md:w-auto"
+          >
             <div className="flex-1">
               {item.logo && (
                 // Decorative: the heading below carries the name for
