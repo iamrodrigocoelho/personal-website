@@ -25,9 +25,22 @@ export function Experience({ content }: ExperienceProps) {
         subtitle={experience.subtitle}
       />
 
-      <div className="flex flex-col gap-0 divide-y divide-[#e5e7eb]">
+      {/* Carousel below md, the open divider-separated rows from md up. The
+          rows have no card chrome, which doesn't survive a horizontal swipe —
+          so on mobile each item borrows the white card style used by the
+          Articles section over this same gray background. tabIndex keeps the
+          scroller keyboard-reachable: the items contain no links. */}
+      <div
+        className="-mx-6 flex snap-x snap-mandatory scroll-pl-6 gap-5 overflow-x-auto px-6 pb-4 [scrollbar-width:thin] md:mx-0 md:flex-col md:snap-none md:gap-0 md:divide-y md:divide-[#e5e7eb] md:overflow-x-visible md:px-0 md:pb-0"
+        role="group"
+        tabIndex={0}
+        aria-label={experience.title}
+      >
         {experience.items.map((item, i) => (
-          <article key={i} className="py-8 first:pt-0 last:pb-0">
+          <article
+            key={i}
+            className="w-[85%] flex-none snap-start rounded-xl border border-[#e5e7eb] bg-white p-6 md:w-auto md:rounded-none md:border-0 md:bg-transparent md:px-0 md:py-8 md:first:pt-0 md:last:pb-0"
+          >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8">
               {/* Left — role + meta */}
               <div className="lg:col-span-4">
