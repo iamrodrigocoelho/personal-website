@@ -245,14 +245,14 @@ export const en: SiteContent = {
         logo: "/logos/education/estacio-logo.png",
       },
       {
-        name: "Postgraduate in Artificial and Computational Intelligence",
-        issuer: "UFV",
-        logo: "/logos/education/ufv-logo.png",
-      },
-      {
         name: "Postgraduate in Full Stack Development",
         issuer: "PUC-Rio",
         logo: "/logos/education/puc-rio-logo.png",
+      },
+      {
+        name: "Postgraduate in Artificial and Computational Intelligence",
+        issuer: "UFV",
+        logo: "/logos/education/ufv-logo.png",
       },
       {
         name: "Post-MBA",

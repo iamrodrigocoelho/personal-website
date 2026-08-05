@@ -256,14 +256,14 @@ export const pt: SiteContent = {
         logo: "/logos/education/estacio-logo.png",
       },
       {
-        name: "Pós-graduação Inteligência Artificial e Computacional",
-        issuer: "UFV",
-        logo: "/logos/education/ufv-logo.png",
-      },
-      {
-        name: "Pós-graduação Desenvolvimento Full Stack",
+        name: "Pós-graduação em Desenvolvimento Full Stack",
         issuer: "PUC-Rio",
         logo: "/logos/education/puc-rio-logo.png",
+      },
+      {
+        name: "Pós-graduação em Inteligência Artificial e Computacional",
+        issuer: "UFV",
+        logo: "/logos/education/ufv-logo.png",
       },
       {
         name: "Post-MBA",
