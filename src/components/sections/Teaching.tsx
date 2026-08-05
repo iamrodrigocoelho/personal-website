@@ -6,11 +6,12 @@ interface TeachingProps {
   content: SiteContent;
 }
 
-// Per-logo size overrides (default fills the box). These two are solid squares
-// that reach every edge, so they read bigger than the transparent badges.
+// Per-logo size overrides (default fills the box). These artworks reach every
+// edge, so they read bigger than the badges that ship with their own padding.
 const LOGO_SIZE: Record<string, string> = {
   "/logos/certifications/somostera_logo.jpeg": "h-[90%] w-[90%]", // -10%
   "/logos/certifications/startse-logo.jpeg": "h-[90%] w-[90%]", // -10%
+  "/logos/education/ufv-logo.png": "h-[90%] w-[90%]", // -10%
 };
 
 export function Teaching({ content }: TeachingProps) {
