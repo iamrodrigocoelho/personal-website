@@ -117,12 +117,19 @@ export function Articles({ content }: ArticlesProps) {
           </article>
         ))}
 
-        {/* Rest of articles */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Rest of articles. Carousel below md, plain grid from md up — same
+            pattern as Projects/Teaching: -mx-6/px-6 bleeds to the viewport
+            edges, tabIndex keeps the scroller reachable by keyboard. */}
+        <div
+          className="-mx-6 flex snap-x snap-mandatory scroll-pl-6 gap-4 overflow-x-auto px-6 pb-4 [scrollbar-width:thin] md:mx-0 md:grid md:snap-none md:grid-cols-3 md:overflow-x-visible md:px-0 md:pb-0"
+          role="group"
+          tabIndex={0}
+          aria-label={articles.title}
+        >
           {rest.map((article) => (
             <article
               key={article.title}
-              className="bg-white rounded-xl border border-[#e5e7eb] p-6 flex flex-col"
+              className="bg-white rounded-xl border border-[#e5e7eb] p-6 flex w-[85%] flex-none snap-start flex-col md:w-auto"
             >
               {article.logo && (
                 <Image
