@@ -155,6 +155,8 @@ export const pt: SiteContent = {
           "Calcule as emissões de carbono e o consumo de água associados ao uso de ferramentas de IA generativa como ChatGPT, Claude, Gemini e Copilot.",
         tags: ["LLM", "Pegada de Carbono", "ESG"],
         logo: "/logos/projects/cnpj-neutro-logo-black.png",
+        ctaLabel:"AI Carbon Tracker",
+        ctaHref:"https://cnpjneutro.com.br/",
       },
       {
         title: "Tapirus Open 4B",
@@ -162,12 +164,17 @@ export const pt: SiteContent = {
           "SLM open weights especializado em refaunação, conservação da biodiversidade e restauração de interações ecológicas, treinado com dados do Refauna.",
         tags: ["SLM", "Fine Tuning", "RAG"],
         logo: "/logos/projects/huggingface-logo.svg",
+        ctaLabel: "Ver no Hugging Face",
+        ctaHref: "https://huggingface.co/Refauna/tapirus-open-4b",
       },
       {
-        title: "Produto e Tecnologia no Varejo",
+        title: "OCR Local",
         description:
-          "Projetos digitais, omnichannel, plataformas, site, app, PDV e jornada do cliente em ambiente farmacêutico de grande escala.",
-        tags: ["Produto Digital", "Varejo", "Omnichannel", "Plataforma"],
+          "MVP de um OCR que utiliza LLM local, o Chandra OCR 2, via Ollama.",
+        tags: ["LLM", "SLM", "VLM", "OCR", "Ollama"],
+        logo: "/logos/projects/github-logo.png",
+        ctaLabel: "Ver no GitHub",
+        ctaHref: "https://github.com/iamrodrigocoelho/local-ocr-app",
       },
       {
         title: "IA Generativa aplicada a negócios",
@@ -182,11 +189,11 @@ export const pt: SiteContent = {
         tags: ["SRE", "Observabilidade", "Operações", "Confiabilidade"],
       },
       {
-        title: "Conteúdo executivo sobre IA e Sustentabilidade",
+        title: "IA e Sustentabilidade",
         description:
           "Artigos e análises sobre energia, IA, data centers, matriz energética brasileira e vantagem competitiva em negócios sustentáveis.",
         tags: ["IA", "Sustentabilidade", "ESG", "Editorial"],
-        ctaLabel: "Ler artigo na ESG Inside",
+        ctaLabel: "Leia na ESG Inside",
         ctaHref: "https://esginside.com.br/2026/04/24/o-apetite-energetico-dos-llms-e-a-vantagem-competitiva-da-matriz-energetica-brasileira/",
       },
     ],

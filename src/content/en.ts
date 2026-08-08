@@ -144,6 +144,8 @@ export const en: SiteContent = {
           "Calculate the carbon emissions and water consumption associated with using generative AI tools such as ChatGPT, Claude, Gemini, and Copilot.",
         tags: ["LLM", "Carbon Footprint", "ESG"],
         logo: "/logos/projects/cnpj-neutro-logo-black.png",
+        ctaLabel: "AI Carbon Tracker",
+        ctaHref: "https://cnpjneutro.com.br/",
       },
       {
         title: "Tapirus Open 4B",
@@ -151,12 +153,17 @@ export const en: SiteContent = {
           "Open-weights SLM specialized in refaunation, biodiversity conservation, and the restoration of ecological interactions, trained on Refauna data.",
         tags: ["SLM", "Fine Tuning", "RAG"],
         logo: "/logos/projects/huggingface-logo.svg",
+        ctaLabel: "View on Hugging Face",
+        ctaHref: "https://huggingface.co/Refauna/tapirus-open-4b",
       },
       {
-        title: "Product & Technology in Retail",
+        title: "Local OCR",
         description:
-          "Digital projects, omnichannel, platforms, website, app, POS, and customer journey at a large-scale pharmacy chain.",
-        tags: ["Digital Product", "Retail", "Omnichannel", "Platform"],
+          "MVP of an OCR powered by a local LLM, Chandra OCR 2, via Ollama.",
+        tags: ["LLM", "SLM", "VLM", "OCR", "Ollama"],
+        logo: "/logos/projects/github-logo.png",
+        ctaLabel: "View on GitHub",
+        ctaHref: "https://github.com/iamrodrigocoelho/local-ocr-app",
       },
       {
         title: "Generative AI applied to business",
