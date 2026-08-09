@@ -37,7 +37,10 @@ export function Projects({ content }: ProjectsProps) {
             key={item.title}
             variant="soft"
             padding="lg"
-            className="flex w-[85%] flex-none snap-start flex-col md:w-auto"
+            // relative: o h3 sr-only é position:absolute; sem um ancestral
+            // posicionado dentro do carrossel ele escapa do clipping do
+            // overflow-x-auto e estica o scrollWidth do documento no mobile.
+            className="relative flex w-[85%] flex-none snap-start flex-col md:w-auto"
           >
             <div className="flex-1">
               {item.logo && (
